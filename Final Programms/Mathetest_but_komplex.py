@@ -11,7 +11,6 @@ print("_________________________________________________________________________
 game = 1
 Joker = 1
 score = 0
-
 #               Variabeldefinierung
 #
 # score:            Gibt anzahl der richtigen antworten in folge an
