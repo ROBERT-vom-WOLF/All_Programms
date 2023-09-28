@@ -16,6 +16,14 @@ def converter(converter_text):
     while not letters == loop_count:
         text = converter_text[loop_count:(loop_count + 1)]
         print(f"\n Mission:\t{text}")
+        if loop_count % 10 == 0:
+            converted = converted + "\n"
+
+        if (".") in text.lower():
+            if " " in text:
+                converted = converted + "sz3tsn6at_"
+            print("~~(dot)~~ converted")
+
         if (' ') in text.lower():
             if " " in text:
                 converted = converted + "s12nhms34_"
@@ -177,37 +185,36 @@ def converter(converter_text):
 
         if "w" in text.lower():
             if "w" in text:
-                converted = converted + "l65bnams_"
+                converted = converted + "l65bnams4_"
             if "w" in text:
-                converted = converted + "L65bnams_"
+                converted = converted + "L65bnams4_"
             print("~~w~~ converted")
 
         if "x" in text.lower():
             if "x" in text:
-                converted = converted + "l989887m_"
+                converted = converted + "l989887m1_"
             if "x" in text:
-                converted = converted + "L989887m_"
+                converted = converted + "L989887m1_"
             print("~~x~~ converted")
 
         if "y" in text.lower():
             if "y" in text:
-                converted = converted + "l5vbanms_"
+                converted = converted + "l5vbanmsu_"
             if "y" in text:
-                converted = converted + "L5vbanms_"
+                converted = converted + "L5vbanmsu_"
             print("~~y~~ converted")
 
         if "z" in text.lower():
             if "z" in text:
-                converted = converted + "l45bsams_"
+                converted = converted + "l45bsams9_"
             if "z" in text:
-                converted = converted + "L45bsams_"
+                converted = converted + "L45bsams9_"
             print("~~z~~ converted")
 
     #    else:
     #        print(f"Error:\t{text} got not converted")
         loop_count += 1
-    print(converted)
-    input("\nEnter, um das programm zu beenden\n")
+    print(f"dein Text:\n\n\n\n{converted}\n\n\n\n")
     exit()
 
 
