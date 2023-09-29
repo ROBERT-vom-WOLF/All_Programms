@@ -1,6 +1,7 @@
 import random
 loop = 1
 frage = 1
+frage_2 = 1
 draws = 0
 wins = 0
 losses = 0
@@ -95,11 +96,17 @@ while loop == 1:
         print("\t\t\t___________________________________________")
 
     print("Do you want to play again?")
-    game = input("[Y]es or [N]o\n\t").lower()
-    if "y" in game:
-        print("\n")
-        loop = 1
-    else:
-        loop = 0
-        print("Okay, good bye!")
-        exit()
+    while frage_2 == 1:
+        game = input("[Y]es or [N]o\n\t").lower()
+        if "y" in game:
+            # print("gueltige eingabe")
+            print("\n")
+            loop = 1
+            frage_2 = 0
+        elif "n" in game:
+            # print("gueltige eingabe")
+            print("Okay, good bye!")
+            exit()
+        else:
+            # print("ungueltige eingabe")
+            frage_2 = 1
