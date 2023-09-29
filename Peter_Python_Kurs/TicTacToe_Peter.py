@@ -26,48 +26,57 @@ while loop == 1:
             print("Draw.")
             frage = 0
             draws += 1
-        if "p" in answer.lower():
+        elif "p" in answer.lower():
             print("Your opponent showed Rock!")
             print("You won!")
             frage = 0
             wins += 1
-        if "s" in answer.lower():
+        elif "s" in answer.lower():
             print("Your opponent showed Rock!")
             print("You lost!")
             frage = 0
             losses += 1
+        else:
+            print("System:\tError")
+            exit()
     elif zeichen == 2:
         if "p" in answer.lower():
             print("Your opponent showed Paper!")
             print("Draw.")
             frage = 0
             draws += 1
-        if "s" in answer.lower():
+        elif "s" in answer.lower():
             print("Your opponent showed Paper!")
             print("You won!")
             frage = 0
             wins += 1
-        if "r" in answer.lower():
+        elif "r" in answer.lower():
             print("Your opponent showed Paper!")
             print("You lost!")
             frage = 0
             losses += 1
+        else:
+            print("System:\tError")
+            exit()
     elif zeichen == 3:
         if "s" in answer.lower():
             print("Your opponent showed Sissor!")
             print("Draw.")
             frage = 0
             draws += 1
-        if "r" in answer.lower():
+        elif "r" in answer.lower():
             print("Your opponent showed Sissor!")
             print("You won!")
             frage = 0
             wins += 1
-        if "p" in answer.lower():
+        elif "p" in answer.lower():
             print("Your opponent showed Sissor!")
             print("You lost!")
             frage = 0
             losses += 1
+        else:
+            print("System:\tError")
+            exit()
     if "r" in answer or "p" in answer or "s" in answer:
         print("\n\t\t\t___________________________________________")
         print("\t\t\tYour statistics:")
