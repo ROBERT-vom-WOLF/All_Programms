@@ -143,6 +143,6 @@ if ending_stunde_int < 10:
 if ending_minute_int < 10:
     ending_minute_str = "0" + ending_minute_str
 
-print("\nBeginn:\t", beginn_stunde_str, ":", beginn_minute_str, "Uhr")
-print("Ende:\t", ending_stunde_str, ":", ending_minute_str, "Uhr\n")
-print("Ueberstunden:\t", over_h_stunde, "Stunde(n) und", over_h_minute, "minute(n).")
+print(f"\nBeginn:\t {beginn_stunde_str}:{beginn_minute_str} Uhr")
+print(f"Ende:\t {ending_stunde_str}:{ending_minute_str }Uhr\n")
+print(f"Ueberstunden:\t {over_h_stunde} Stunde(n) und {over_h_minute} minute(n).")

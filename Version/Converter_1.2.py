@@ -250,10 +250,3 @@ while loop == 1:
     else:
         fragestellung()
 
-# alles in eine while loop, dann [] für den text srg verwenden
-# eine variable auf 0 setzen, dann die variable in die klammer: text[variable, (variable + 1)]
-# am ende der loop variable + 1
-#
-# geht buchstabe für buchstabe duch den str
-#
-#
