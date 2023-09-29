@@ -1,4 +1,5 @@
 import random
+import play_again
 loop = 1
 frage = 1
 frage_2 = 1
@@ -95,18 +96,4 @@ while loop == 1:
         print(f"\t\t\tDraws: \t\t{draws}")
         print("\t\t\t___________________________________________")
 
-    print("Do you want to play again?")
-    while frage_2 == 1:
-        game = input("[Y]es or [N]o\n\t").lower()
-        if "y" in game:
-            # print("gueltige eingabe")
-            print("\n")
-            loop = 1
-            frage_2 = 0
-        elif "n" in game:
-            # print("gueltige eingabe")
-            print("Okay, good bye!")
-            exit()
-        else:
-            # print("ungueltige eingabe")
-            frage_2 = 1
+    play_again.play_again()
