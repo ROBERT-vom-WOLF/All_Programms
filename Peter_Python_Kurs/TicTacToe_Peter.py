@@ -24,7 +24,7 @@ while loop == 1:
         if "r" in answer.lower():
             print("You chose Rock!")
             print("Your opponent showed Rock!")
-            print("Draw.")
+            print("It's a Draw.")
             frage = 0
             draws += 1
         elif "p" in answer.lower():
@@ -46,7 +46,7 @@ while loop == 1:
         if "p" in answer.lower():
             print("You chose Paper!")
             print("Your opponent showed Paper!")
-            print("Draw.")
+            print("It's a Draw.")
             frage = 0
             draws += 1
         elif "s" in answer.lower():
@@ -68,7 +68,7 @@ while loop == 1:
         if "s" in answer.lower():
             print("You chose Sissors!")
             print("Your opponent showed Sissor!")
-            print("Draw.")
+            print("It's a Draw.")
             frage = 0
             draws += 1
         elif "r" in answer.lower():
