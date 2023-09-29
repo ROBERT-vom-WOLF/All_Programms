@@ -1,6 +1,6 @@
 import random
 print("Wer soll heute zahlen?")
-print("Bitte beachten sie, dass sie alle Personen mit einem "," trennen.\n ")
+print('Bitte beachten sie, dass sie alle Personen mit einem "," trennen.\n ')
 eingabe = input("Namen:\t")
 names = eingabe.split(",")
 names.append(eingabe)
