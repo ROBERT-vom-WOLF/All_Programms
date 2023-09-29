@@ -1,5 +1,5 @@
 import random
-import play_again
+import fnc_play_again
 loop = 1
 frage = 1
 frage_2 = 1
@@ -96,4 +96,4 @@ while loop == 1:
         print(f"\t\t\tDraws: \t\t{draws}")
         print("\t\t\t___________________________________________")
 
-    play_again.play_again()
+    fnc_play_again.play_again()

@@ -1,5 +1,5 @@
 import random
-import play_again
+import fnc_play_again
 loop = 1
 while loop == 1:
     print("Wer soll heute zahlen?")
@@ -11,4 +11,4 @@ while loop == 1:
     letters = zahler_str.count("")
     zahler_str = zahler_str[2:(letters - 3)]
     print(f"Es ist: {zahler_str}")
-    play_again.play_again()
+    fnc_play_again.play_again()
