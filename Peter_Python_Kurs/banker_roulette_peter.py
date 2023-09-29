@@ -11,4 +11,4 @@ while loop == 1:
     letters = zahler_str.count("")
     zahler_str = zahler_str[2:(letters - 3)]
     print(f"Es ist: {zahler_str}")
-    fnc_ask_again.play_again("tell a payer")
+    fnc_ask_again.ask("einen zahlenen bestimmen", "DE")

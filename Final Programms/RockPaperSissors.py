@@ -1,4 +1,5 @@
 import random
+import fnc_ask_again
 loop = 1
 frage = 1
 draws = 0
@@ -76,12 +77,4 @@ while loop == 1:
         print(f"\t\t\tLosses: \t{losses}")
         print(f"\t\t\tDraws: \t\t{draws}")
         print("\t\t\t___________________________________________")
-
-    print("Do you want to play again?")
-    game = input("[Y]es or [N]o\n\t").lower()
-    if "y" in game:
-        loop = 1
-    else:
-        loop = 0
-        print("Okay, good bye!")
-        exit()
+    fnc_ask_again.ask("play", "EN")
