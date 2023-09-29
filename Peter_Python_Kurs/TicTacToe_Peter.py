@@ -18,20 +18,23 @@ while loop == 1:
         elif "r" not in answer or "p" not in answer or "s" not in answer:
             # print("ungueltige eingabe")
             frage = 1
-    print("\n")
+    # print("\n")
     zeichen = random.randint(1, 3)
     if zeichen == 1:
         if "r" in answer.lower():
+            print("You chose Rock!")
             print("Your opponent showed Rock!")
             print("Draw.")
             frage = 0
             draws += 1
         elif "p" in answer.lower():
+            print("You chose Paper!")
             print("Your opponent showed Rock!")
             print("You won!")
             frage = 0
             wins += 1
         elif "s" in answer.lower():
+            print("You chose Paper!")
             print("Your opponent showed Rock!")
             print("You lost!")
             frage = 0
@@ -41,16 +44,19 @@ while loop == 1:
             exit()
     elif zeichen == 2:
         if "p" in answer.lower():
+            print("You chose Paper!")
             print("Your opponent showed Paper!")
             print("Draw.")
             frage = 0
             draws += 1
         elif "s" in answer.lower():
+            print("You chose Sissors!")
             print("Your opponent showed Paper!")
             print("You won!")
             frage = 0
             wins += 1
         elif "r" in answer.lower():
+            print("You chose Rock!")
             print("Your opponent showed Paper!")
             print("You lost!")
             frage = 0
@@ -60,16 +66,19 @@ while loop == 1:
             exit()
     elif zeichen == 3:
         if "s" in answer.lower():
+            print("You chose Sissors!")
             print("Your opponent showed Sissor!")
             print("Draw.")
             frage = 0
             draws += 1
         elif "r" in answer.lower():
+            print("You chose Rock!")
             print("Your opponent showed Sissor!")
             print("You won!")
             frage = 0
             wins += 1
         elif "p" in answer.lower():
+            print("You chose Paper!")
             print("Your opponent showed Sissor!")
             print("You lost!")
             frage = 0
@@ -88,6 +97,7 @@ while loop == 1:
     print("Do you want to play again?")
     game = input("[Y]es or [N]o\n\t").lower()
     if "y" in game:
+        print("\n")
         loop = 1
     else:
         loop = 0
