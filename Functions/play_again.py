@@ -1,4 +1,4 @@
-def repeat_question():
+def play_again():
     frage = 1
     print("Do you want to play again?")
     while frage == 1:
