@@ -12,14 +12,13 @@ while loop == 1:
     frage = 1
     while frage == 1:
         answer = input('[R]ock, [P]aper, [S]issors]!\n\t').lower()
-        # if "r" not in answer or "p" not in answer or "s" not in answer:
         if "r" in answer or "p" in answer or "s" in answer:
-            print("gueltige eingabe")
+            # print("gueltige eingabe")
             frage = 0
         elif "r" not in answer or "p" not in answer or "s" not in answer:
-            print("ungueltige eingabe")
+            # print("ungueltige eingabe")
             frage = 1
-
+    print("\n")
     zeichen = random.randint(1, 3)
     if zeichen == 1:
         if "r" in answer.lower():
