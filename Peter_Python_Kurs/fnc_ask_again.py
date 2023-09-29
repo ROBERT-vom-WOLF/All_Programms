@@ -1,6 +1,6 @@
-def play_again():
+def play_again(Fragewort):
     frage = 1
-    print("\nDo you want to play again?")
+    print(f"\nDo you want to {Fragewort} again?")
     while frage == 1:
         game = input("[Y]es or [N]o\n\t").lower()
         if "y" in game:
