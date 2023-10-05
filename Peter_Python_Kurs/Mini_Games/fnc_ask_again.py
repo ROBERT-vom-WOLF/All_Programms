@@ -1,7 +1,7 @@
 def ask(Fragewort, Language="EN"):
     frage = 1
     if Language == "DE":
-        print(f"\nMöchtest du nochmals {Fragewort}?")
+        print(f"\nMoechtest du nochmals {Fragewort}?")
         while frage == 1:
             game = input("[J]a oder [N]ein\n\t").lower()
             if "j" in game:
@@ -9,10 +9,10 @@ def ask(Fragewort, Language="EN"):
                 print("\n")
                 frage = 0
             elif "n" in game:
-                print("Okay, schönen Tag!")
+                print("Okay, schoenen Tag!")
                 exit()
             else:
-                print('Bitte Antworte nur mit "J" für Ja oder "N" für Nein.')
+                print('Bitte Antworte nur mit "J" fuer Ja oder "N" fuer Nein.')
     elif Language == "EN":
         print(f"\nDo you want to {Fragewort} again?")
         while frage == 1:
