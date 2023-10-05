@@ -3,9 +3,9 @@ from hangman_art import *
 from hangman_words import *
 import fnc_ask_again
 weiter = 1
-used_letters = []
 while weiter == 1:
     word = random.choice(german_words)
+    used_letters = []
     versuche = 7
     answer = ""
     game = 0
