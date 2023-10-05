@@ -3,9 +3,10 @@ from hangman_art import *
 from hangman_words import *
 import fnc_ask_again
 weiter = 1
+used_letters = []
 while weiter == 1:
-    versuche = 7
     word = random.choice(german_words)
+    versuche = 7
     answer = ""
     game = 0
     user = ""
@@ -32,6 +33,8 @@ while weiter == 1:
         if user.lower() not in word.lower():
             versuche -= 1
             print("Falsch!")
+            used_letters += user.lower()
+            print(stages[versuche])
             if versuche == 0:
                 print(f"Du hast keine versuche mehr!")
                 print(f"Die richtige Antwort war: {word}")
@@ -40,5 +43,6 @@ while weiter == 1:
                 print(f"Du hast noch {versuche} Versuch(e)!")
         if versuche == 0:
             fnc_ask_again.ask("spielen", "DE")
-        else:
-            print(stages[versuche])
+        print("______________________________________________________________________________")
+        print(f"Deine falschen Buchstaben: {used_letters}")
+        print("______________________________________________________________________________")
