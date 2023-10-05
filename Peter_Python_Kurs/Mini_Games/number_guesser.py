@@ -11,7 +11,11 @@ while loop == 1:
     while game == 1:
         answer = int(input("Dein guess:\t "))
         used_guesses += 1
-        # print(number)
+        if answer > schwierigkeit:
+            print('''
+            
+            Du bist ueber deinem eigen festgelegten Maximum!
+            ''')
         if answer == number:
             print("Das ist sie")
             print("Glückwunsch!")
@@ -40,4 +44,4 @@ while loop == 1:
             print(f"Du hast noch {guesses - used_guesses} Versuche!\n")
         else:
             print("System:\tError")
-    fnc_ask_again.play_again("play")
+    fnc_ask_again.ask("spielen", "DE")

@@ -96,4 +96,4 @@ while loop == 1:
         print(f"\t\t\tDraws: \t\t{draws}")
         print("\t\t\t___________________________________________")
 
-    fnc_ask_again.play_again("play")
+    fnc_ask_again.ask("play", "EN")
