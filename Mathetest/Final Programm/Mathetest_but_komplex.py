@@ -13,22 +13,15 @@ print("_________________________________________________________________________
 game = 1
 Joker = 1
 score = 0
-#               Variabeldefinierung
-#
-# score:            Gibt anzahl der richtigen antworten in folge an
-# score_goal:       Gibt den Gewünschten Score des Anwenders an, wenn deiser erreicht wird, wird er
-# schwierigkeit:    Gibt die maximale höhe der Zahlen an, die in der Aufgabenstellung möglich sind
-# Joker:            Für den einmaligen gebrauch von der "42 Antwort" pro spiel
-# nummer_1:         Die erste Zahl der Aufgabe
-# nummer_2:         Die zweite Zahl der Aufgabe
-# zeichen:          Für die zufällige Rechenzeichen definierung
-# dive_else:        Wenn die geteilt aufgabe nicht möglich ist, wird stattdessen diesen zeichen verwendet
-# game:             Wird nur für die "while-schleife" verwendet, um das spiel weiter laufen zu lassen oder abzubrechen
-# answer:           Die antwort auf die aufgabe von dem Anwender
-# right_answer:     Die richtige Antwort der Aufgabe
+
 while True:
     durchlauf = 0
     while game == 1:
+        # Im Folgenden part (zeile 25 bis 38) werden die zufälligen Zahlen und rechenzeicehn definiert und überprüft
+        # Wenn das zeichen eine 4 (geteilt) sein sollte, wird überprüft, ob die Antwort keine Nachkommastellen hat,
+        # wenn sie dividiert wird. Falls ja, bleibt das Rechenzeichen. Falls Nachkommastellen vorhanden sind,
+        # wird die variable devide_else zur bestimmung des Rechenzeichens verwendet und das geteilt wird ausgeschlossen
+
         time_start = 0
         time_end = 0
         nummer_1 = random.randint(1, schwierigkeit)
@@ -37,13 +30,14 @@ while True:
         devide_else = random.randint(1, 3)
         str(nummer_1)
         str(nummer_2)
+
         if zeichen == 4:
             if nummer_1 % nummer_2 == 0:
                 zeichen = zeichen
             else:
                 zeichen = devide_else
 
-    # Im folgenden Part (zeile 50 bis 56) wird eingeleitet, wenn das Score Goal errreicht wird.
+    # Der folgende Part (zeile 44 bis 50) wird eingeleitet, wenn das Score Goal errreicht wird.
     # Hier wird nachgefragt, obman weiter spielen will.
     # Wenn ja, dann wird solange gespielt, bis das neue Scor Goal erreit ist!
 
@@ -55,11 +49,12 @@ while True:
             print("Okay, weiter gehts!")
             time.sleep(1)
 
-    # Im folgenden Part (Zeile 61 bis 80) wird das random Rechenzeichen definiert und eingesetzt.
+    # Im folgenden Part (Zeile 55 bis 75) wird das random Rechenzeichen definiert und eingesetzt.
     # Zusätzlich wird dann sofort die Frage an den Endnutzer gestellt und die richtige antwort definiert.
 
         if durchlauf >= 1:
             print("Als nächstes:\n_________________________________________\n_________________________________________")
+
         if zeichen == 1:
             right_answer = int(nummer_1 + nummer_2)
             print("Was ist", nummer_1, "+", nummer_2, "?")
@@ -79,13 +74,15 @@ while True:
             print("Error Zeile 67")
             exit()
 
-    # In der folgenden Zeilen (83 bis 87) wird er Input des Anwenders angefragt, um die Aufgabe zu lösen
+    # In der folgenden Zeilen (80 bis 83) wird er Input des Anwenders angefragt, um die Aufgabe zu lösen
     # Es wird auch die Zeit gemessen, die der User zum antworten brauchen
+
         time_start = time.time()
         answer = int(input("Antwort:\t\t"))
         time_end = time.time()
         rechenzeit = str(time_end - time_start)
-    # Im folgenden Part (Zeile 93 bis 131) wird überprüft, ob die angegebene Antwort stimmt oder nicht
+
+    # Im folgenden Part (Zeile 90 bis 130) wird überprüft, ob die angegebene Antwort stimmt oder nicht
     # Falls die Antwort nicht Stimmt, aber 42 ist, ist sie trozdem zulässig,
     # doch dieser "Joker" darf nur einmal verwendet werden.
     # Wer weiß, der weiß...
@@ -127,9 +124,28 @@ while True:
             print("Dein Score war: ", score,)
             game = 0
             time.sleep(1.2)
+
         durchlauf += 1
+
     ask("spielen", "DE")
+
 # ______________________________________________________________________________________________________________________
+#               Variabeldefinierung
+#
+# score:            Gibt anzahl der richtigen antworten in folge an
+# score_goal:       Gibt den Gewünschten Score des Anwenders an, wenn deiser erreicht wird, wird er
+# schwierigkeit:    Gibt die maximale höhe der Zahlen an, die in der Aufgabenstellung möglich sind
+# Joker:            Für den einmaligen gebrauch von der "42 Antwort" pro spiel
+# nummer_1:         Die erste Zahl der Aufgabe
+# nummer_2:         Die zweite Zahl der Aufgabe
+# zeichen:          Für die zufällige Rechenzeichen definierung
+# dive_else:        Wenn die geteilt aufgabe nicht möglich ist, wird stattdessen diesen zeichen verwendet
+# game:             Wird nur für die "while-schleife" verwendet, um das spiel weiter laufen zu lassen oder abzubrechen
+# answer:           Die antwort auf die aufgabe von dem Anwender
+# right_answer:     Die richtige Antwort der Aufgabe
+#
+# ______________________________________________________________________________________________________________________
+#
 #                           Funktionen:
 #        Zeitmessung:
 #            misst die Zeit, die der Anwender zum Antworten braucht
