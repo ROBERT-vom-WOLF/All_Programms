@@ -1,4 +1,5 @@
 import random
+import time
 from hangman_art import *
 from hangman_words import *
 import fnc_ask_again
@@ -28,21 +29,32 @@ while weiter == 1:
             print("\nDu hast gewonnen!")
             versuche = 0
         if versuche > 0:
-            user = input("\n\nDein Buchstabe\n").lower()
+            user = input("\n\nDein Buchstabe:\n\t").lower()
             answer = user + answer
+            print(f"Trommelwirbel!!")
+            print(f'Dein Buchstabe " {user} " ist...')
+            time.sleep(1.5)
+
         if user.lower() not in word.lower():
             versuche -= 1
             print("Falsch!")
             used_letters += user.lower()
-            print(stages[versuche])
             if versuche == 0:
                 print(f"Du hast keine versuche mehr!")
-                print(f"Die richtige Antwort war: {word}")
-                print("\t\t\tGame Over")
-            else:
-                print(f"Du hast noch {versuche} Versuch(e)!")
+                print(f"Die richtige Antwort war\t\t {word}")
+                print("\t\tGame Over")
+        else:
+            print("Richtig!")
+
+        if versuche <= 6:
+            print(stages[versuche])
+            time.sleep(0.5)
+        time.sleep(0.2)
+        if versuche > 0:
+            print("______________________________________________________________________________")
+            print(f"Deine falschen Buchstaben: {used_letters}")
+            print(f"Deine verbleibenden Versuche: {versuche}")
+            print("______________________________________________________________________________")
+        time.sleep(0.2)
         if versuche == 0:
             fnc_ask_again.ask("spielen", "DE")
-        print("______________________________________________________________________________")
-        print(f"Deine falschen Buchstaben: {used_letters}")
-        print("______________________________________________________________________________")
