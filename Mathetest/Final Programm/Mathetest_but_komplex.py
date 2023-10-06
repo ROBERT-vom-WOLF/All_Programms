@@ -43,7 +43,7 @@ while True:
             else:
                 zeichen = devide_else
 
-    # Im folgenden Part (zeile 45 bis 56) wird eingeleitet, wenn das Score Goal errreicht wird.
+    # Im folgenden Part (zeile 50 bis 56) wird eingeleitet, wenn das Score Goal errreicht wird.
     # Hier wird nachgefragt, obman weiter spielen will.
     # Wenn ja, dann wird solange gespielt, bis das neue Scor Goal erreit ist!
 
@@ -55,7 +55,7 @@ while True:
             print("Okay, weiter gehts!")
             time.sleep(1)
 
-    # Im folgenden Part (Zeile 61 bis 78) wird das random Rechenzeichen definiert und eingesetzt.
+    # Im folgenden Part (Zeile 61 bis 80) wird das random Rechenzeichen definiert und eingesetzt.
     # Zusätzlich wird dann sofort die Frage an den Endnutzer gestellt und die richtige antwort definiert.
 
         if durchlauf >= 1:
@@ -79,12 +79,13 @@ while True:
             print("Error Zeile 67")
             exit()
 
-    # In der folgenden Zeile (82) wird er Input des Anwenders angefragt, um die Aufgabe zu lösen
+    # In der folgenden Zeilen (83 bis 87) wird er Input des Anwenders angefragt, um die Aufgabe zu lösen
+    # Es wird auch die Zeit gemessen, die der User zum antworten brauchen
         time_start = time.time()
         answer = int(input("Antwort:\t\t"))
         time_end = time.time()
         rechenzeit = str(time_end - time_start)
-    # Im folgenden Part (Zeile 84 bis 111) wird überprüft, ob die angegebene Antwort stimmt oder nicht
+    # Im folgenden Part (Zeile 93 bis 131) wird überprüft, ob die angegebene Antwort stimmt oder nicht
     # Falls die Antwort nicht Stimmt, aber 42 ist, ist sie trozdem zulässig,
     # doch dieser "Joker" darf nur einmal verwendet werden.
     # Wer weiß, der weiß...
@@ -130,6 +131,8 @@ while True:
     ask("spielen", "DE")
 # ______________________________________________________________________________________________________________________
 #                           Funktionen:
+#        Zeitmessung:
+#            misst die Zeit, die der Anwender zum Antworten braucht
 #        Score:
 #            gibt die anzahl der richtig gelösten Matheaufgaben an
 #        Aufgabe:
