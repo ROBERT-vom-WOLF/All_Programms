@@ -48,13 +48,13 @@ while weiter == 1:
 
         if versuche <= 6:
             print(stages[versuche])
-            time.sleep(0.5)
-        time.sleep(0.2)
+        time.sleep(0.5)
         if versuche > 0:
-            print("______________________________________________________________________________")
-            print(f"Deine falschen Buchstaben: {used_letters}")
-            print(f"Deine verbleibenden Versuche: {versuche}")
-            print("______________________________________________________________________________")
+            print(f"\t\t\t\t\t\t\t____________________________________| HANGMAN |____________________________________")
+            print(f"\t\t\t\t\t\t\tDeine falschen Buchstaben:\t\t{used_letters}")
+            print(f"\t\t\t\t\t\t\tDeine verbleibenden Versuche:\t{versuche}")
+            print(f"\t\t\t\t\t\t\t____________________________________| ======= |____________________________________")
+
         time.sleep(0.2)
         if versuche == 0:
             fnc_ask_again.ask("spielen", "DE")

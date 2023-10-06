@@ -1,10 +1,12 @@
 import random
+import time
+from fnc_ask_again import *
 print("\t\t\t\t\tMathematik Test\n\n")
 print("Bitte gebe eine beliebige Zahlen an.\nUm so hoeher, um so schwerer wird der Test.\n\t")
 schwierigkeit = int(input("\t"))
 print('Dieses Spiel zaehlt mit, wie viele Fragen du infolge richtig hattest.\nDas ist der sogenannte "Score".')
 print('Dein "Score Goal" ist dein erwuenschter "Score". Dann wird das spiel pausiert\n')
-score_goal = int(input('Welchen "Score" moechtest du heute erreichen? Wir empfehlen 50\n\t'))
+score_goal = int(input('Welchen "Score" moechtest du heute erreichen? Wir empfehlen 15\n\t'))
 print("\nGut, dann lass uns jetzt anfangen!")
 print("\nBitte achte darauf, das du keine anderen Zeichen, außer deiner Antwortzahlen verwendest!")
 print("___________________________________________________________________________________________________________")
@@ -24,91 +26,108 @@ score = 0
 # game:             Wird nur für die "while-schleife" verwendet, um das spiel weiter laufen zu lassen oder abzubrechen
 # answer:           Die antwort auf die aufgabe von dem Anwender
 # right_answer:     Die richtige Antwort der Aufgabe
+while True:
+    durchlauf = 0
+    while game == 1:
+        time_start = 0
+        time_end = 0
+        nummer_1 = random.randint(1, schwierigkeit)
+        nummer_2 = random.randint(1, schwierigkeit)
+        zeichen = random.randint(1, 4)
+        devide_else = random.randint(1, 3)
+        str(nummer_1)
+        str(nummer_2)
+        if zeichen == 4:
+            if nummer_1 % nummer_2 == 0:
+                zeichen = zeichen
+            else:
+                zeichen = devide_else
 
-while game == 1:
-    nummer_1 = random.randint(1, schwierigkeit)
-    nummer_2 = random.randint(1, schwierigkeit)
-    zeichen = random.randint(1, 4)
-    devide_else = random.randint(1, 3)
-    str(nummer_1)
-    str(nummer_2)
-    if zeichen == 4:
-        if nummer_1 % nummer_2 == 0:
-            zeichen = zeichen
-        else:
-            zeichen = devide_else
+    # Im folgenden Part (zeile 45 bis 56) wird eingeleitet, wenn das Score Goal errreicht wird.
+    # Hier wird nachgefragt, obman weiter spielen will.
+    # Wenn ja, dann wird solange gespielt, bis das neue Scor Goal erreit ist!
 
-# Im folgenden Part (zeile 45 bis 56) wird eingeleitet, wenn das Score Goal errreicht wird.
-# Hier wird nachgefragt, obman weiter spielen will.
-# Wenn ja, dann wird solange gespielt, bis das neue Scor Goal erreit ist!
-
-    if score == score_goal:
-        print("Du hast dein Score Goal errreicht! Glueckwunsch!")
-        print("Moechtest du noch weiter machen?")
-        farge_weiter = input('Antworte mit "ja"" oder "nein"\n\t')
-
-        if farge_weiter.lower() == 'ja':
+        if score == score_goal:
+            print("Du hast dein Score Goal errreicht! Glueckwunsch!")
+            ask("die Aufgaben rechnen", "DE")
             zusaetzlicher_score = int(input("Um wie viel moechtest du dein Score Goal erhoehen?\n\t"))
             score_goal = score_goal + zusaetzlicher_score
+            print("Okay, weiter gehts!")
+            time.sleep(1)
+
+    # Im folgenden Part (Zeile 61 bis 78) wird das random Rechenzeichen definiert und eingesetzt.
+    # Zusätzlich wird dann sofort die Frage an den Endnutzer gestellt und die richtige antwort definiert.
+
+        if durchlauf >= 1:
+            print("Als nächstes:\n_________________________________________\n_________________________________________")
+        if zeichen == 1:
+            right_answer = int(nummer_1 + nummer_2)
+            print("Was ist", nummer_1, "+", nummer_2, "?")
+
+        elif zeichen == 2:
+            right_answer = int(nummer_1 - nummer_2)
+            print("Was ist", nummer_1, "-", nummer_2, "?")
+
+        elif zeichen == 3:
+            right_answer = int(nummer_1 * nummer_2)
+            print("Was ist", nummer_1, "x", nummer_2, "?")
+        elif zeichen == 4:
+            right_answer = int(nummer_1 / nummer_2)
+            print(f"Was ist {nummer_1} geteilt durch {nummer_2} ?")
 
         else:
-            print("Schade, das du aufhoerst.")
+            print("Error Zeile 67")
             exit()
 
-# Im folgenden Part (Zeile 61 bis 78) wird das random Rechenzeichen definiert und eingesetzt.
-# Zusätzlich wird dann sofort die Frage an den Endnutzer gestellt und die richtige antwort definiert.
+    # In der folgenden Zeile (82) wird er Input des Anwenders angefragt, um die Aufgabe zu lösen
+        time_start = time.time()
+        answer = int(input("Antwort:\t\t"))
+        time_end = time.time()
+        rechenzeit = str(time_end - time_start)
+    # Im folgenden Part (Zeile 84 bis 111) wird überprüft, ob die angegebene Antwort stimmt oder nicht
+    # Falls die Antwort nicht Stimmt, aber 42 ist, ist sie trozdem zulässig,
+    # doch dieser "Joker" darf nur einmal verwendet werden.
+    # Wer weiß, der weiß...
 
-    if zeichen == 1:
-        right_answer = int(nummer_1 + nummer_2)
-        print("Was ist", nummer_1, "+", nummer_2, "?")
-
-    elif zeichen == 2:
-        right_answer = int(nummer_1 - nummer_2)
-        print("Was ist", nummer_1, "-", nummer_2, "?")
-
-    elif zeichen == 3:
-        right_answer = int(nummer_1 * nummer_2)
-        print("Was ist", nummer_1, "x", nummer_2, "?")
-    elif zeichen == 4:
-        right_answer = int(nummer_1 / nummer_2)
-        print(f"Was ist {nummer_1} geteilt durch {nummer_2} ?")
-
-    else:
-        print("Error Zeile 67")
-        exit()
-
-# In der folgenden Zeile (82) wird er Input des Anwenders angefragt, um die Aufgabe zu lösen
-
-    answer = int(input("Antwort:\t\t"))
-
-# Im folgenden Part (Zeile 84 bis 111) wird überprüft, ob die angegebene Antwort stimmt oder nicht
-# Falls die Antwort nicht Stimmt, aber 42 ist, ist sie trozdem zulässig,
-# doch dieser "Joker" darf nur einmal verwendet werden.
-# Wer weiß, der weiß...
-
-    if right_answer == answer:
-        score = score + 1
-        print("\nRichtig!!\n")
-        print("Dein Score ist:\t", score)
-        print("Als nächstes:\n_________________________________________\n_________________________________________")
-
-    elif answer == 42:
-        if Joker >= 1:
-            Joker = Joker - 1
+        if right_answer == answer:
             score = score + 1
-            print("\nRichtig!! 42 ist die Antwort auf alles.\n")
-            print("Dein Score ist:\t\t\t", score)
-            print("Als nächstes:\n_________________________________________\n_________________________________________")
+            print(f"Du hast {rechenzeit[0:4]} Sekunden gebraucht.")
+            print("Deine Antwort ist...")
+            time.sleep(1.8)
+            print("\n\t\t\t\t\t\t\t\t\t\tRichtig!!\n")
+            print("Dein Score ist:\t", score)
+            time.sleep(1.2)
+
+        elif answer == 42:
+            if Joker >= 1:
+                Joker = Joker - 1
+                score = score + 1
+                print(f"Du hast {rechenzeit[0:4]} Sekunden gebraucht.")
+                print("Deine Antwort ist...")
+                time.sleep(1.2)
+                print("\n\t\t\t\t\t\t\t\t\t\tRichtig!! 42 ist die Antwort auf alles.\n")
+                print(f"Aber bedenke, du darfst diesen Joker nur noch {Joker} mal verwenden!")
+                print("Dein Score ist:\t\t\t", score)
+                time.sleep(1.2)
+            else:
+                print("42 darf nur einmal verwendet werden!")
+                print("Du hast verloren!")
+                print("Die richtige antwort war:\t", right_answer)
+                print("Dein Score war: ", score, )
+                game = 0
+
         else:
-            print("42 darf nur einmal verwendet werden!")
-
-    else:
-        print("Du hast verloren!")
-        print("Die richtige antwort war:\t", right_answer)
-        print("Dein Score war: ", score,)
-        game = 0
-
-input("Enter, um das Programm zu beenden")
+            print(f"Du hast {rechenzeit[0:4]} Sekunden gebraucht.")
+            print("Deine Antwort ist...")
+            time.sleep(1.2)
+            print("Falsch")
+            print("Du hast verloren!")
+            print("Die richtige antwort war:\t", right_answer)
+            print("Dein Score war: ", score,)
+            game = 0
+            time.sleep(1.2)
+        durchlauf += 1
+    ask("spielen", "DE")
 # ______________________________________________________________________________________________________________________
 #                           Funktionen:
 #        Score:

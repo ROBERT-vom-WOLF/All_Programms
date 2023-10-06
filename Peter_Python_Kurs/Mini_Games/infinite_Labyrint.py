@@ -18,8 +18,8 @@ while game == 1:
     schaetze = ["Diamanten", "Goldbarren", "antike Münzen", "seltene Briefmarken", "Gemälde berühmter Künstler", "Luxusuhren", "Silberbesteck", "Edelsteinschmuck", "Vintage-Weine", "historische Artefakte", "Sammlerstücke aus Porzellan", "Designerhandtaschen", "Echtschmuck"]
     zweigungen = zweigungen + 1
     ereignisse = ["nichts als leere...", "einen gegner...", "einen Schatz...", "eine Tür..."]
-    enemy_defeat = random.randint(1, 10)
-    geschehen = random.choices(ereignisse, weights=[0, 0, 0, 3], k=1)
+    enemy_defeat = random.randint(1, 20)
+    geschehen = random.choices(ereignisse, weights=[100, 50, 15, 3], k=1)
     random_leere = random.randint(1, 3)
     schatz = random.choices(schaetze, k=1)
 
