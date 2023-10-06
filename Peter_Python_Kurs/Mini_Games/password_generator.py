@@ -1,5 +1,5 @@
 import random
-import fnc_ask_again
+from fnc_ask_again import *
 while True:
     stellen = 0
     password = []
@@ -27,4 +27,4 @@ while True:
     print(f"\nDas Passwort hat {stellen} Stellen.")
     print("\n\n")
     print("_____________________________________________________")
-    fnc_ask_again.ask("generieren", "DE")
+    ask("generieren", "DE")
