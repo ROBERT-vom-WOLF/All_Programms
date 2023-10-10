@@ -1,7 +1,7 @@
 def ask(Fragewort, Language="EN"):
     frage = 1
     if Language == "DE":
-        print(f"\nMoechtest du nochmals {Fragewort}?")
+        print(f"\nMoechten sie nochmals {Fragewort}?")
         while frage == 1:
             game = input("[J]a oder [N]ein\n\t").lower()
             if "j" in game:
