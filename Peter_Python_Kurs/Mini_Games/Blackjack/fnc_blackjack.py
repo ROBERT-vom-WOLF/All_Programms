@@ -5,12 +5,12 @@ def blackjack(graphics_on_off=""):
     blackjack_greeting = ""
 
     if graphics_on_off != "on":
-        blackjack_greeting = "Black Jack"
+        blackjack_greeting = "Black Jack ♤♡♧♢"
 
     print("\t\t\t\t\tHerzlich Willkommen im Kasino!")
-    print(f"\t\t\t\t\tHeute spielen wir: {blackjack_greeting}")
+    print(f"\t\t\t\t\tHeute spielen wir: ", end="")
     time.sleep(1.5)
-
+    print(blackjack_greeting)
     if graphics_on_off == "on":
         print('''
         ██████╗░██╗░░░░░░█████╗░░█████╗░██╗░░██╗   ░░░░░██╗░█████╗░░█████╗░██╗░░██╗
@@ -49,13 +49,13 @@ def blackjack(graphics_on_off=""):
         while True:
             kartenwert = 0
             blind_throw = 0
-            print(f"\t\t\t\t\t\t\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~| Blackjack |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+            print(f"\t\t\t\t\t\t\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~| Blackjack |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
             print(f"\t\t\t\t\t\t\t|--- Runde: ----------------- {runde}")
             print(f"\t\t\t\t\t\t\t|--- Ihre Gewinne: ---------- {wins}")
             print(f"\t\t\t\t\t\t\t|--- Ihre Fehlschläge: ------ {losses}")
             print(f"\t\t\t\t\t\t\t|--- Ihre Black-Jacks: ------ {black_jacks}")
             print(f"\t\t\t\t\t\t\t|--- Ihr Geld: -------------- {money}")
-            print(f"\t\t\t\t\t\t\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~| Blackjack |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+            print(f"\t\t\t\t\t\t\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~| Blackjack |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
             print("\t\t\t\t\t\t\tSie haben auch jederzeit die Möglichkeit, mit [V] das Kasino zu verlassen")
             print("\n")
             print(f"Der aktuelle Blind:     {blind}")

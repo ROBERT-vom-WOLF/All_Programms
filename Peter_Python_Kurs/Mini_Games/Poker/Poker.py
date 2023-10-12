@@ -54,11 +54,13 @@ card_list = [
     "Raute    3",
     "Raute    2"
 ]
+all_dealed_cards = []
 
 dealed_card = 0
 cards = []
 print("Eigene Hand:", end="\t\t")
 player_own = random.choices(card_list, k=2)
+all_dealed_cards += player_own
 
 for char in player_own:
     print(char, end="\n\t\t\t\t\t")
@@ -79,7 +81,6 @@ while True:
     if dealed_card == 6:
         break
     input("\nNächste Runde\n")
-
     cards += random.choices(card_list, k=1)
     print("Ausgelegt:", end="\t\t\t")
     char_0 = ""
@@ -87,7 +88,7 @@ while True:
         print(char_0, end="\n\t\t\t\t\t")
     card_list.remove(char_0)
     time.sleep(2)
-
+all_dealed_cards += cards
 input("\nLetzte Runde\n")
 print("Ausgelegt:", end="\t\t\t")
 for char_last_round in cards:
@@ -97,6 +98,7 @@ input("\n\nAufdecken!\n")
 time.sleep(2)
 
 player_1 = random.choices(card_list, k=2)
+all_dealed_cards += player_1
 print("\nSpieler 1:\t", end="")
 for char_1 in player_1:
     print(char_1, end="; ")
@@ -105,6 +107,7 @@ time.sleep(2)
 
 
 player_2 = random.choices(card_list, k=2)
+all_dealed_cards += player_2
 print("\nSpieler 2:\t", end="")
 for char_2 in player_2:
     print(char_2, end="; ")
@@ -113,14 +116,15 @@ time.sleep(2)
 
 
 player_3 = random.choices(card_list, k=2)
+all_dealed_cards += player_3
 print("\nSpieler 3:\t", end="")
 for char_3 in player_3:
     print(char_3, end="; ")
     card_list.remove(char_3)
 time.sleep(2)
 
-
 player_4 = random.choices(card_list, k=2)
+all_dealed_cards += player_4
 print("\nSpieler 4:\t", end="")
 for char_4 in player_4:
     print(char_4, end="; ")
