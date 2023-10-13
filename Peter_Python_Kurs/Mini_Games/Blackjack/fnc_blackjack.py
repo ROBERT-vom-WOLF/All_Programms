@@ -2,6 +2,7 @@ def blackjack(graphics_on_off=""):
     import random
     import time
     import fnc_blackjack_werte
+    import fnc_symbols_n_words
     blackjack_greeting = ""
 
     if graphics_on_off != "on":
@@ -59,8 +60,9 @@ def blackjack(graphics_on_off=""):
             print("\n")
             print(f"Der aktuelle Blind:     {blind:,} €")
 
+
             while blind_throw <= blind - 1 or blind_throw > money:
-                blind_throw = int(input("Ihr Einsatz:\n\t"))
+                blind_throw = input("Ihr Einsatz:\n\t")
             money -= blind_throw
 
             while True:
@@ -75,7 +77,8 @@ def blackjack(graphics_on_off=""):
                         if graphics_on_off != "on":
                             print(char, end="; ")
                     if kartenwert > 21 and "Ace" in cards:
-                        print("\n\nErinnerung: Ihr Ass ist nun nur 1 Punkt wert, da sie sonst über der Grenze wären.", end="")
+                        print("\n\nErinnerung: Ihr Ass ist nun nur 1 Punkt wert")
+                        print("da sie sonst über der Grenze wären.", end="")
                         kartenwert -= 10
                     print(f"\n\nKartenwert:\t\t\t\t{kartenwert}\n")
                     if graphics_on_off != "on":
@@ -110,7 +113,7 @@ def blackjack(graphics_on_off=""):
                 if user.lower() == "z":
                     cards.extend(random.choices(fnc_blackjack_werte.cards_list, k=1))
                 elif user.lower() == "k":
-                    while dealer_worth > kartenwert and dealer_worth < 22:
+                    while dealer_worth <= kartenwert and dealer_worth < 22:
                         print(f"Der Dealer zeiht eine Karte!")
                         print("\n")
                         dealer_card = random.choices(fnc_blackjack_werte.cards_list, k=1)
@@ -121,10 +124,16 @@ def blackjack(graphics_on_off=""):
                         if graphics_on_off != "on":
                             print(f"Die Karte ist:                                    {dealer_card}")
 
-                        print(f"Zusammen ergeben seine Karten:                    {dealer_worth}\n")
-                        time.sleep(3)
+                        if dealer_worth > 21 and "Ace" in cards:
+                            print("\n\nErinnerung: Sein Ass ist nun nur 1 Punkt wert,")
+                            print("da er sonst über der Grenze wäre.", end="")
+                            kartenwert -= 10
 
-                elif dealer_worth > 21:
+                        if len(dealer_hand) > 1:
+                            print(f"Zusammen ergeben seine Karten:                    {dealer_worth}\n")
+                            time.sleep(3)
+
+                if dealer_worth > 21:
                     print("\nDer dealer hat verloren")
                     print("Sie haben gewonnen!")
                     print(f'Sie bekommen "{blind_throw * 2}"€ ausgezahlt!\n')
