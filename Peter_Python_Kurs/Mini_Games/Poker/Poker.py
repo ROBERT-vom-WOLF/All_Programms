@@ -114,7 +114,6 @@ for char_2 in player_2:
     card_list.remove(char_2)
 time.sleep(2)
 
-
 player_3 = random.choices(card_list, k=2)
 all_dealed_cards += player_3
 print("\nSpieler 3:\t", end="")

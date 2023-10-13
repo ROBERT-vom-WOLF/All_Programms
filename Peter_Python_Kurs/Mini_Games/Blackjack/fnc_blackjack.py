@@ -11,6 +11,7 @@ def blackjack(graphics_on_off=""):
     print(f"\t\t\t\t\tHeute spielen wir: ", end="")
     time.sleep(1.5)
     print(blackjack_greeting)
+
     if graphics_on_off == "on":
         print('''
         ██████╗░██╗░░░░░░█████╗░░█████╗░██╗░░██╗   ░░░░░██╗░█████╗░░█████╗░██╗░░██╗
@@ -27,7 +28,6 @@ def blackjack(graphics_on_off=""):
     money = 20000000
     blind = 1000000
     runde = 0
-    ueberboten = False
 
     while True:
         runde += 1
@@ -132,6 +132,7 @@ def blackjack(graphics_on_off=""):
                     blind_throw = blind_throw * 2
                     money += blind_throw
                     break
+
                 if dealer_worth > kartenwert:
                     print("\nDer Dealer hat sie überboten!")
                     print("Sie haben verloren!")
