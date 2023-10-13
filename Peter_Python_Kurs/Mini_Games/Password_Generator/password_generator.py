@@ -27,7 +27,7 @@ while True:
     while True:
         print("\n")
         stellen += 1
-        if stellen > 200:
+        if stellen > 30:
             break
     stellen = 0
 
