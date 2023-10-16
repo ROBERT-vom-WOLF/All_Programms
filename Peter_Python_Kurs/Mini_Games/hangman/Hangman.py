@@ -3,6 +3,7 @@ import time
 from hangman_art import *
 from symbols_n_words import *
 import fnc_ask_again
+
 while True:
     word = random.choice(german_words)
     used_letters = ""
