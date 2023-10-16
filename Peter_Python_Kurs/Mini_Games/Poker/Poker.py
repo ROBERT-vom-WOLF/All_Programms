@@ -1,5 +1,49 @@
 import random
 import time
+def worthing(list):
+    worthing_list = []
+    for card in list:
+        if card[9:10] == "A":
+            worthing_list.extend("11")
+
+        elif card[9:10] == "K":
+            worthing_list.extend("10")
+
+        elif card[9:10] == "Q":
+            worthing_list.extend("10")
+
+        elif card[9:10] == "J":
+            worthing_list.extend("10")
+
+        elif card[9:10] == "T":
+            worthing_list.extend("10")
+
+        elif card[9:10] == "9":
+            worthing_list.extend("9")
+
+        elif card[9:10] == "8":
+            worthing_list.extend("8")
+
+        elif card[9:10] == "7":
+            worthing_list.extend("7")
+
+        elif card[9:10] == "6":
+            worthing_list.extend("6")
+
+        elif card[9:10] == "5":
+            worthing_list.extend("5")
+
+        elif card[9:10] == "4":
+            worthing_list.extend("4")
+
+        elif card[9:10] == "4":
+            worthing_list.extend("3")
+
+        elif card[9:10] == "2":
+            worthing_list.extend("2")
+    return worthing_list
+
+
 card_list = [
     "Herz     A",
     "Herz     K",
@@ -129,3 +173,7 @@ for char_4 in player_4:
     print(char_4, end="; ")
     card_list.remove(char_4)
 time.sleep(2)
+
+
+all_player_cards = player_1 + player_2 + player_3 + player_4 + player_own
+print(all_player_cards.sort(key=worthing(all_player_cards)))
