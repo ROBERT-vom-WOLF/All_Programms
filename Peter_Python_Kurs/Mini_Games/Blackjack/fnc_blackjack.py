@@ -2,7 +2,6 @@ def blackjack(graphics_on_off=""):
     import random
     import time
     import fnc_blackjack_werte
-    import fnc_symbols_n_words
     blackjack_greeting = ""
 
     if graphics_on_off != "on":

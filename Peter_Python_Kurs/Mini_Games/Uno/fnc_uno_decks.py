@@ -1,62 +1,62 @@
 import random
 
 cards_liste = [
-    "G  0",
-    "G  1",
-    "G  2",
-    "G  3",
-    "G  4",
-    "G  5",
-    "G  6",
-    "G  7",
-    "G  8",
-    "G  9",
-    "G -Skip",
-    "G -Reverse",
-    "G +2",
-    "G +4",
-    "Y  0",
-    "Y  1",
-    "Y  2",
-    "Y  3",
-    "Y  4",
-    "Y  5",
-    "Y  6",
-    "Y  7",
-    "Y  8",
-    "Y  9",
-    "Y -Skip",
-    "Y -Reverse",
-    "Y +2",
-    "Y +4",
-    "R  0",
-    "R  1",
-    "R  2",
-    "R  3",
-    "R  4",
-    "R  5",
-    "R  6",
-    "R  7",
-    "R  8",
-    "R  9",
-    "R -Skip",
-    "R -Reverse",
-    "R +2",
-    "R +4",
-    "B  0",
-    "B  1",
-    "B  2",
-    "B  3",
-    "B  4",
-    "B  5",
-    "B  6",
-    "B  7",
-    "B  8",
-    "B  9",
-    "B -Skip",
-    "B -Reverse",
-    "B +2",
-    "B +4",
+    "Green   0",
+    "Green   1",
+    "Green   2",
+    "Green   3",
+    "Green   4",
+    "Green   5",
+    "Green   6",
+    "Green   7",
+    "Green   8",
+    "Green   9",
+    "Green   Skip",
+    "Green   Reverse",
+    "Green   +2",
+    "Green   +4",
+    "Yellow  0",
+    "Yellow  1",
+    "Yellow  2",
+    "Yellow  3",
+    "Yellow  4",
+    "Yellow  5",
+    "Yellow  6",
+    "Yellow  7",
+    "Yellow  8",
+    "Yellow  9",
+    "Yellow  Skip",
+    "Yellow  Reverse",
+    "Yellow +2",
+    "Yellow +4",
+    "Red     0",
+    "Red     1",
+    "Red     2",
+    "Red     3",
+    "Red     4",
+    "Red     5",
+    "Red     6",
+    "Red     7",
+    "Red     8",
+    "Red     9",
+    "Red     Skip",
+    "Red     Reverse",
+    "Red     +2",
+    "Red     +4",
+    "Blue    0",
+    "Blue    1",
+    "Blue    2",
+    "Blue    3",
+    "Blue    4",
+    "Blue    5",
+    "Blue    6",
+    "Blue    7",
+    "Blue    8",
+    "Blue    9",
+    "Blue    Skip",
+    "Blue    Reverse",
+    "Blue    +2",
+    "Blue    +4",
                ]
 decks = int(input("Wie viele Decks willst du verwenden?\t\t"))
 cards_count = int(input("Wie viele Karten willst du verwenden?\t\t"))
@@ -84,19 +84,20 @@ def give_card(count=1):
 
 player_1 = give_card(cards_count)
 player_2 = give_card(cards_count)
+player_1 = sorted(player_1)
+player_2 = sorted(player_2)
 random.shuffle(all_decks)
-while all_decks[0[2:3]] != " ":
-    random.shuffle(all_decks)
 
 if current_player_1:
     print("Spieler 1 ist am Zug!\n")
     for char in player_1:
         print(char)
-    print(f"Oberste Karte:\t{all_decks[0]}")
+    print(f"\nOberste Karte:\t{all_decks[0]}")
 elif not current_player_1:
     print("Spieler 2 ist am Zug!\n")
     for char in player_2:
         print(char)
+    print(f"\nOberste Karte:\t{all_decks[0]}")
 
 else:
     print("Error kein Boolean type")
