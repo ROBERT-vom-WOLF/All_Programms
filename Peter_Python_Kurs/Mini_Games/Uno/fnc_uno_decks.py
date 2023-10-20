@@ -27,8 +27,8 @@ cards_liste = [
     "Yellow  9",
     "Yellow  Skip",
     "Yellow  Reverse",
-    "Yellow +2",
-    "Yellow +4",
+    "Yellow  +2",
+    "Yellow  +4",
     "Red     0",
     "Red     1",
     "Red     2",
@@ -70,15 +70,14 @@ while True:
         break
 
 
-def give_card(count=1):
+def give_card(count=2):
     global all_decks
     card_deck = []
-    while count > 0:
+    while len(card_deck) != count:
         card = random.choices(all_decks, k=1)
-        card_deck += card
         for char in card:
             all_decks.remove(char)
-        count -= 1
+        card_deck.extend(card)
     return card_deck
 
 
@@ -93,6 +92,7 @@ if current_player_1:
     for char in player_1:
         print(char)
     print(f"\nOberste Karte:\t{all_decks[0]}")
+    
 elif not current_player_1:
     print("Spieler 2 ist am Zug!\n")
     for char in player_2:

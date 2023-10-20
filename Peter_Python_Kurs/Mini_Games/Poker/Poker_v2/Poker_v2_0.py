@@ -1,61 +1,7 @@
-import random
 import time
+from fnc_worthing_new import *
 money = 10000
 # Loop beginn
-card_list = [
-    "Herz     A",
-    "Herz     K",
-    "Herz     Q",
-    "Herz     J",
-    "Herz     T",
-    "Herz     9",
-    "Herz     8",
-    "Herz     7",
-    "Herz     6",
-    "Herz     5",
-    "Herz     4",
-    "Herz     3",
-    "Herz     2",
-    "Schippe  A",
-    "Schippe  K",
-    "Schippe  Q",
-    "Schippe  J",
-    "Schippe  T",
-    "Schippe  9",
-    "Schippe  8",
-    "Schippe  7",
-    "Schippe  6",
-    "Schippe  5",
-    "Schippe  4",
-    "Schippe  3",
-    "Schippe  2",
-    "Blatt    A",
-    "Blatt    K",
-    "Blatt    Q",
-    "Blatt    J",
-    "Blatt    T",
-    "Blatt    9",
-    "Blatt    8",
-    "Blatt    7",
-    "Blatt    6",
-    "Blatt    5",
-    "Blatt    4",
-    "Blatt    3",
-    "Blatt    2",
-    "Raute    A",
-    "Raute    K",
-    "Raute    Q",
-    "Raute    J",
-    "Raute    T",
-    "Raute    9",
-    "Raute    8",
-    "Raute    7",
-    "Raute    6",
-    "Raute    5",
-    "Raute    4",
-    "Raute    3",
-    "Raute    2"
-]
 
 
 def statistics():
@@ -74,17 +20,58 @@ def statistics():
     print("\n")
 
 
+def user_raise_input():
+    global own_pot_money
+    global pool_raise
+    global blind
+    global money
+    global opponet_pot_money
+    if own_pot_money == opponet_pot_money:
+        print("Everyone has the same money in the pot right now!")
+    pool_raise = int(input(f"How much money do you want to lay in the pool:\t"))
+    if own_pot_money != opponet_pot_money:  # pot_money_list[0] ist das höchste im pot
+        while pool_raise < blind or pool_raise > money:
+            pool_raise = int(input(f"How much money do you want to lay in the pool:\t"))
+    elif pool_raise == 0:
+        return True
+    documetary_own_money(pool_raise)
+
+
+def opponent_raise():
+    global pot_money_list
+    global pot_money
+    global opponet_pot_money
+    opponet_raise = random.choices(opponets_raise_chances, weights=[5, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+    for char in opponet_raise:
+        opponet_raise = int(char)
+    print(f'''_______________________________________________________
+                Your opponent raised the pot with {opponet_raise} $\n''')
+    pot_money += opponet_raise
+    opponet_pot_money += opponet_raise
+    pot_money_list.append(opponet_raise)
+    pot_money_list.sort(reverse=True)
+
+
+def opponent_goes_with_u():
+    global pot_money
+    global opponet_pot_money
+    print("You now are higher than your opponent!")
+    time.sleep(1)
+    print("Your opponet goes with you!")
+    opponet_pot_money = own_pot_money
+    pot_money = opponet_pot_money + own_pot_money
+    time.sleep(2)
+
+
 def give_cards(count=2):
     global card_list
     hand = []
-    while True:
+    while len(hand) != count:
         card = random.choices(card_list, k=1)
-        for char in card:
-            card_list.remove(char)
-        if len(hand) != count:
-            hand.extend(card)
-        else:
-            return hand
+        for current_card_in_def_give_cards in card:
+            card_list.remove(current_card_in_def_give_cards)
+        hand.extend(card)
+    return hand
 
 
 def documetary_own_money(document):
@@ -107,7 +94,7 @@ player_own = give_cards(2)
 player_1 = give_cards(2)
 runde = 0
 blind = 10
-opponets_raise_chances = [blind*0, blind*2, blind*3, blind*4, blind*5, blind*6, blind*7, blind*8, blind*9, blind*10]
+opponets_raise_chances = [blind*0, blind*0, blind*0, blind*0, blind*0, blind*0, blind*2, blind*3, blind*4, blind*5]  # nopep8
 print(f"You currently have {money:,} $ in your Account!\n")
 print(f"The Blind is currently: {blind:,} $\n")
 print("Do you want to play this round?")
@@ -127,33 +114,21 @@ while True:
     if runde >= 4:
         break
     while True:
+        pool_raise = 0
         opponet_pot_money = pot_money - own_pot_money
         if own_pot_money > opponet_pot_money:  # wenn du mehr als dein gegner im pot hast
-            print("You now are higher than your opponent!")
-            time.sleep(1)
-            print("Your opponet goes with you!")
-            opponet_pot_money = own_pot_money
-            pot_money = opponet_pot_money + own_pot_money
-            time.sleep(2)
+            opponent_goes_with_u()
+
         else:
-            opponet_raise = random.choices(opponets_raise_chances, weights=[5, 1, 1, 1, 1, 1, 1, 1, 1, 1])
-            for char in opponet_raise:
-                opponet_raise = int(char)
-            print(f"Your opponent raised the pot with {opponet_raise} $")
-            pot_money += opponet_raise
-            opponet_pot_money += opponet_raise
-            pot_money_list.append(opponet_raise)
-            pot_money_list.sort(reverse=True)
+            opponent_raise()
         statistics()
-        if own_pot_money == opponet_pot_money:
-            print("Everyone has the same money in the pot right now!")
-        pool_raise = int(input(f"How much money do you want to lay in the pool:\t"))
-        if own_pot_money != opponet_pot_money:  # pot_money_list[0] ist das höchste im pot
-            while pool_raise < blind or pool_raise > money:
-                pool_raise = int(input(f"How much money do you want to lay in the pool:\t"))
-            documetary_own_money(pool_raise)
-        elif pool_raise == 0:
+
+        user_raise_input()
+
+        if pool_raise == 0:
             break
+
+        documetary_own_money(pool_raise)
         statistics()
 
     print("The next Round beginns!")
@@ -165,3 +140,7 @@ while True:
 
 # Berechnungen...
 print("Berechnung")
+
+print(f"\n\nTable Cards:\t\t{sorted(table_cards, key=custom_sort, reverse=True)}")
+print(f"Own Cards:\t\t\t{sorted(player_own, key=custom_sort, reverse=True)}")
+print(f"Opponent Cards:\t\t{sorted(player_1, key=custom_sort, reverse=True)}")
