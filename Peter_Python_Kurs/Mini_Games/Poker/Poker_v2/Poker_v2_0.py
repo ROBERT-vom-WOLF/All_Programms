@@ -86,62 +86,65 @@ def documetary_own_money(document):
 
 money = 10000
 # Loop beginn
-pot_money_list = []
-pot_money = 0
-own_pot_money = 0
-table_cards = give_cards(5)
-player_own = give_cards(2)
-player_1 = give_cards(2)
-runde = 0
-blind = 10
-opponets_raise_chances = [blind*0, blind*0, blind*0, blind*0, blind*0, blind*0, blind*2, blind*3, blind*4, blind*5]  # nopep8
-print(f"You currently have {money:,} $ in your Account!\n")
-print(f"The Blind is currently: {blind:,} $\n")
-print("Do you want to play this round?")
-play_request = input("[Y]es or [N]o \t")
-if play_request.lower() == "n":
-    print("You paused for a round!")
-    exit()  # später wird aus dem exit ein break gemacht, wenn alles in einer loop ist
-documetary_own_money(blind)
-time.sleep(0.5)
-print("Your opponent goes with you and lies 10 $ in!\n")
-pot_money += 10
-pot_money_list.append(10)
-pot_money_list.sort(reverse=True)
-time.sleep(0.8)
-while True:
-    runde += 1
-    if runde >= 4:
-        break
-    while True:
-        pool_raise = 0
-        opponet_pot_money = pot_money - own_pot_money
-        if own_pot_money > opponet_pot_money:  # wenn du mehr als dein gegner im pot hast
-            opponent_goes_with_u()
-
-        else:
-            opponent_raise()
-        statistics()
-
-        user_raise_input()
-
-        if pool_raise == 0:
-            break
-
-        statistics()
-
-    print("The next Round beginns!")
-    print("Open Cards:\t\t", end="")
-    print(f"{table_cards[0:runde + 2]}\n")
-
-    time.sleep(2)
+while money > 0:
+    pot_money_list = []
+    pot_money = 0
+    own_pot_money = 0
+    table_cards = give_cards(5)
+    player_own = give_cards(2)
+    player_1 = give_cards(2)
+    runde = 0
+    blind = 10
+    opponets_raise_chances = [blind*0, blind*0, blind*0, blind*0, blind*0, blind*0, blind*2, blind*3, blind*4, blind*5]  # nopep8
+    print(f"You currently have {money:,} $ in your Account!\n")
+    print(f"The Blind is currently: {blind:,} $\n")
+    print("Do you want to play this round?")
+    play_request = input("[Y]es or [N]o \t")
+    if play_request.lower() == "n":
+        print("You paused for a round!")
+        exit()  # später wird aus dem exit ein break gemacht, wenn alles in einer loop ist
+    documetary_own_money(blind)
+    time.sleep(0.5)
+    print("Your opponent goes with you and lies 10 $ in!\n")
+    pot_money += 10
+    pot_money_list.append(10)
     pot_money_list.sort(reverse=True)
+    time.sleep(0.8)
+    while True:
+        runde += 1
+        if runde >= 4:
+            break
+        while True:
+            pool_raise = 0
+            opponet_pot_money = pot_money - own_pot_money
+            if own_pot_money > opponet_pot_money:  # wenn du mehr als dein gegner im pot hast
+                opponent_goes_with_u()
 
-# Berechnungen...
-print("Berechnung")
+            else:
+                opponent_raise()
+            statistics()
 
-print(f"\n\nTable Cards:\t\t{sorted(table_cards, key=custom_sort, reverse=True)}")
-print(f"Own Cards:\t\t\t{sorted(player_own, key=custom_sort, reverse=True)}")
-print(f"Opponent Cards:\t\t{sorted(player_1, key=custom_sort, reverse=True)}")
+            user_raise_input()
 
-worthing_best_five(table_cards, player_own, player_1)
+            if pool_raise == 0:
+                break
+
+            statistics()
+
+        print("The next Round beginns!")
+        print("Open Cards:\t\t", end="")
+        print(f"{table_cards[0:runde + 2]}\n")
+
+        time.sleep(2)
+        pot_money_list.sort(reverse=True)
+
+    # Berechnungen...
+    print("Berechnung")
+
+    print(f"\n\nTable Cards:\t\t{sorted(table_cards, key=custom_sort, reverse=True)}")
+    print(f"Own Cards:\t\t\t{sorted(player_own, key=custom_sort, reverse=True)}")
+    print(f"Opponent Cards:\t\t{sorted(player_1, key=custom_sort, reverse=True)}")
+
+    worthing_best_five(table_cards, player_own, player_1)
+print("Bankrott!")
+print("Game Over!")
