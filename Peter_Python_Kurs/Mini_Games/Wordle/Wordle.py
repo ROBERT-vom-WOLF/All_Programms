@@ -47,4 +47,5 @@ while True:
             durchgang += 1
         print()
         print(indicator_list)
+        print(guess_list)
         break
