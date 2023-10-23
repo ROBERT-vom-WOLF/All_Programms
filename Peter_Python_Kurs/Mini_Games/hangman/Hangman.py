@@ -36,7 +36,7 @@ while True:
             print("\nDu hast gewonnen!")
             versuche = 0
         if versuche > 0:
-            while user[0:1] not in alphabet_list:
+            while user[0:1] not in alphabet_list or user in used_letters.upper():
                 user = input("Dein Buchstabe:\n\t").upper()
             answer = user + answer
             print(f"Trommelwirbel!!")

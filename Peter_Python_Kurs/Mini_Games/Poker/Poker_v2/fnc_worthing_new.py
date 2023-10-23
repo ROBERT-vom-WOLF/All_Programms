@@ -146,14 +146,6 @@ def create_number_list(liste):
     return number_list
 
 
-# table_cards = give_cards(5)
-# player_own = give_cards()
-# player_1 = give_cards()
-# print(f"\n\nTable Cards:\t\t{sorted(table_cards, key=custom_sort, reverse=True)}")
-# print(f"Own Cards:\t\t\t{sorted(player_own, key=custom_sort, reverse=True)}")
-# print(f"Opponent Cards:\t\t{sorted(player_1, key=custom_sort, reverse=True)}")
-
-
 def return_duplicates(list):
     duplicates = ""
     pairs = 0
@@ -196,7 +188,6 @@ def compinations(list, number_list, all_number_list):
         straight_char += durchlauf
         straight_list.append(straight_char)
         durchlauf += 1
-    # print(straight_list)
     for char in list:
         if char[0:1] == "H":
             herzen += 1
@@ -214,30 +205,33 @@ def compinations(list, number_list, all_number_list):
             threes += 1
         if ammount >= 2:
             pairs += 1
-    all_value = 0
-    for char in number_list:
-        char = int(char)
-        all_value += char
-    if (herzen >= 5 or schippe >= 5 or blatt >= 5 or raute >= 5) and number_list == {14, 13, 12, 11, 10}:
-        return f"10: Royal Flush {all_value}"
-    elif (straight_list.count(straight_list[0]) == 5 or straight_list.count(straight_list[1]) == 5 or straight_list.count(straight_list[2]) == 5) and (herzen == 5 or schippe == 5 or blatt == 5 or raute == 5):  # nopep8
-        return f"9: straight flush {all_value}"
+    same_color = False
+    straight = False
+    if herzen >= 5 or schippe >= 5 or blatt >= 5 or raute >= 5:
+        same_color = True
+    if straight_list.count(straight_list[0]) == 5 or straight_list.count(straight_list[1]) == 5 or straight_list.count(straight_list[2]) == 5:   # nopep8
+        straight = True
+
+    if same_color and number_list == {14, 13, 12, 11, 10}:
+        return "10: Royal Flush"
+    elif same_color and straight:
+        return "9: straight flush"
     elif fours >= 4:
-        return f"8: four of a kind {all_value}"
+        return "8: four of a kind"
     elif pairs >= 2 and threes >= 3:
-        return f"7: Full House {all_value}"
+        return "7: Full House"
     elif herzen >= 5 or schippe >= 5 or blatt >= 5 or raute >= 5:
-        return f"6: Flush {all_value}"
-    elif straight_list.count(straight_list[0]) == 5 or straight_list.count(straight_list[1]) == 5 or straight_list.count(straight_list[2]) == 5:  # nopep8
-        return f"5: straight {all_value}"
+        return "6: Flush"
+    elif straight:
+        return "5: straight"
     elif threes >= 3:
-        return f"4: three of a kind {all_value}"
+        return "4: three of a kind"
     elif pairs >= 4:
-        return f"3: two pair {all_value}"
+        return "3: two pair"
     elif pairs >= 2:
-        return f"2: pair {all_value}"
+        return "2: pair"
     elif all_number_list[0] == number_list[0]:
-        return f"1: High Card {all_value}"
+        return "1: High Card"
     else:
         return "0"
 
@@ -252,28 +246,16 @@ def worthing_best_five(open, own, opponent):
     cards_7_all_num = create_number_list(cards_7_all)
     cards_7_own_num = create_number_list(cards_7_own)
     cards_7_opponent_num = create_number_list(cards_7_opponent)
-    # cards_7_own_num = ['14', '13', '12', '11', '10', '9', '8']
-    # cards_7_opponent_num = ['12', '11', '10', '8', '7', '6', '4']
-
-    # print(cards_7_own_num)
-    # print(cards_7_opponent_num)
     own_worthing = compinations(cards_7_own, cards_7_own_num, cards_7_all_num)
     opponents_worthing = compinations(cards_7_opponent, cards_7_opponent_num, cards_7_all_num)
-    print(f"You:    {own_worthing}")
-    print(f"Bro:    {opponents_worthing}")
+    print(f"You:    {own_worthing[3:12]}")
+    print(f"Bro:    {opponents_worthing[3:12]}")
     if opponents_worthing[0] == own_worthing[0]:
-        if int(opponents_worthing[13:]) < int(opponents_worthing[13:]):
-            print("Du hast gewonnen!")
-        elif int(opponents_worthing[13:]) > int(opponents_worthing[13:]):
-            print("Dein gegner hat gewonnen!")
-        else:
-            print("Draw!")
+        print("Draw")
+        return 0
     elif int(opponents_worthing[0]) > int(own_worthing[0]):
         print("Dein gegner hat gewonnen!")
+        return -1
     elif int(opponents_worthing[0]) < int(own_worthing[0]):
         print("Du hast gewonnen!")
-
-
-# worthing_best_five(table_cards, player_own, player_1)
-
-
+        return 1

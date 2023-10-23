@@ -7,7 +7,7 @@ def statistics():
         f"\t\t\t\t\t\t\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~| Poker: Texas hold'em |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")  # nopep8
     print(f"\t\t\t\t\t\t\t|--- Round: ----------------------------- {runde}")
     print(f"\t\t\t\t\t\t\t|--- Your Money: ------------------------ {money:,} €")
-    print(f"\t\t\t\t\t\t\t|--- Your Cards: ------------------------ {player_own}")
+    print(f"\t\t\t\t\t\t\t|--- Your Cards: ------------------------ {sorted(player_own, key=custom_sort, reverse=True)}")
     print(
         f"\t\t\t\t\t\t\t|-------------------------------------------------------------------------------------------")  # nopep8
     print(f"\t\t\t\t\t\t\t|--- In the Pot: ------------------------ {pot_money:,} €")
@@ -39,7 +39,7 @@ def opponent_raise():
     global pot_money_list
     global pot_money
     global opponet_pot_money
-    opponet_raise = random.choices(opponets_raise_chances, weights=[5, 1, 1, 1, 1, 1, 1, 1, 1, 1])
+    opponet_raise = random.choices(opponets_raise_chances, weights=[40, 5, 5, 5, 5, 5])
     for char in opponet_raise:
         opponet_raise = int(char)
     print(f'''_______________________________________________________
@@ -85,17 +85,17 @@ def documetary_own_money(document):
 
 
 money = 10000
+pot_money = 0
+runde = 0
+blind = 10
 # Loop beginn
 while money > 0:
     pot_money_list = []
-    pot_money = 0
     own_pot_money = 0
     table_cards = give_cards(5)
     player_own = give_cards(2)
     player_1 = give_cards(2)
-    runde = 0
-    blind = 10
-    opponets_raise_chances = [blind*0, blind*0, blind*0, blind*0, blind*0, blind*0, blind*2, blind*3, blind*4, blind*5]  # nopep8
+    opponets_raise_chances = [blind*0, blind*1, blind*2, blind*3, blind*4, blind*5]
     print(f"You currently have {money:,} $ in your Account!\n")
     print(f"The Blind is currently: {blind:,} $\n")
     print("Do you want to play this round?")
@@ -133,7 +133,7 @@ while money > 0:
 
         print("The next Round beginns!")
         print("Open Cards:\t\t", end="")
-        print(f"{table_cards[0:runde + 2]}\n")
+        print(f"{sorted(table_cards[0:runde + 2], key=custom_sort, reverse=True)}\n")
 
         time.sleep(2)
         pot_money_list.sort(reverse=True)
@@ -145,6 +145,12 @@ while money > 0:
     print(f"Own Cards:\t\t\t{sorted(player_own, key=custom_sort, reverse=True)}")
     print(f"Opponent Cards:\t\t{sorted(player_1, key=custom_sort, reverse=True)}")
 
-    worthing_best_five(table_cards, player_own, player_1)
+    end = worthing_best_five(table_cards, player_own, player_1)
+    if end == 1:
+        print(f"Du bekommst: {pot_money}€")
+        money += pot_money
+        pot_money = 0
+    elif end == -1:
+        pot_money = 0
 print("Bankrott!")
 print("Game Over!")
