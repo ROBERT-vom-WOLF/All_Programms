@@ -1,7 +1,5 @@
 import time
 from fnc_worthing_new import *
-money = 10000
-# Loop beginn
 
 
 def statistics():
@@ -86,6 +84,8 @@ def documetary_own_money(document):
     pot_money_list.sort(reverse=True)
 
 
+money = 10000
+# Loop beginn
 pot_money_list = []
 pot_money = 0
 own_pot_money = 0
@@ -128,7 +128,6 @@ while True:
         if pool_raise == 0:
             break
 
-        documetary_own_money(pool_raise)
         statistics()
 
     print("The next Round beginns!")
@@ -144,3 +143,5 @@ print("Berechnung")
 print(f"\n\nTable Cards:\t\t{sorted(table_cards, key=custom_sort, reverse=True)}")
 print(f"Own Cards:\t\t\t{sorted(player_own, key=custom_sort, reverse=True)}")
 print(f"Opponent Cards:\t\t{sorted(player_1, key=custom_sort, reverse=True)}")
+
+worthing_best_five(table_cards, player_own, player_1)
