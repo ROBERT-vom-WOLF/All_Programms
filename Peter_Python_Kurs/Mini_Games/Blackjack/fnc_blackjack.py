@@ -59,9 +59,15 @@ def blackjack(graphics_on_off=""):
             print("\n")
             print(f"Der aktuelle Blind:     {blind:,} €")
 
-
             while blind_throw <= blind - 1 or blind_throw > money:
                 blind_throw = input("Ihr Einsatz:\n\t")
+                if blind_throw.lower() == "v":
+                    print("\nSie haben das Kasino verlassen")
+                    print("Wir wünschen ihnen noch einen schönen aufenthalt im Kasino")
+                    print("Wenn sie wieder kommen, denken sie daran:\nGlücksspiel macht süchtig!")
+                    exit()
+                else:
+                    blind_throw = int(blind_throw)
             money -= blind_throw
 
             while True:

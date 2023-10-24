@@ -1,4 +1,3 @@
-import random
 card_list = [
     "Herz     A",
     "Herz     K",
@@ -70,17 +69,6 @@ values = {
 }
 
 
-def give_cards(count=2):
-    global card_list
-    hand = []
-    while len(hand) != count:
-        card = random.choices(card_list, k=1)
-        for char in card:
-            card_list.remove(char)
-        hand.extend(card)
-    return hand
-
-
 def return_number(string):
     if string[9:10] == "A":
         return "14"
@@ -121,17 +109,10 @@ def return_number(string):
     elif string[9:10] == "2":
         return "2"
 
-
-def find_duplicates(list):
-    duplicates = []
-    already_documented = []
-    for char in list:
-        count = list.count(char)
-        if count > 1:
-            if char not in already_documented:
-                duplicates.append(count)
-                already_documented.append(char)
-    return duplicates
+    else:
+        print("SYSTEM ERROR: TYPER ERROR IN FNC: RETURN NUMBER")
+        print("SYSTEM ERROR: SHUTDOWN!")
+        exit()
 
 
 def custom_sort(card):
@@ -144,33 +125,6 @@ def create_number_list(liste):
         char = return_number(char)
         number_list.append(char)
     return number_list
-
-
-def return_duplicates(list):
-    duplicates = ""
-    pairs = 0
-    threes = 0
-    fours = 0
-    for char in list:
-        if list.count(char) == 4:
-            duplicates = "8: four of a kind"
-            fours += 1
-        if list.count(char) == 3:
-            duplicates = "4: three of a kind"
-            threes += 1
-        if list.count(char) == 2:
-            duplicates = "2: pair"
-            pairs += 1
-    if fours == 4:
-        duplicates = "8: four of a kind"
-    elif pairs == 2 and threes == 3:
-        duplicates = "7: Full House"
-    elif pairs == 4:
-        duplicates = "3: two pair"
-    print(f"Pairs: {pairs}", end="\t")
-    print(f"Threes: {threes}", end="\t")
-    print(f"Fours: {fours}")
-    return duplicates
 
 
 def compinations(list, number_list, all_number_list):

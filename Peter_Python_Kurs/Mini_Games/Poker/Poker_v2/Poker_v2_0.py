@@ -1,17 +1,18 @@
 import time
+import random
 from fnc_worthing_new import *
 
 
 def statistics():
     print(
-        f"\t\t\t\t\t\t\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~| Poker: Texas hold'em |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")  # nopep8
+        f"\t\t\t\t\t\t\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~| Poker: Texas hold'em |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
     print(f"\t\t\t\t\t\t\t|--- Round: ----------------------------- {runde}")
     print(f"\t\t\t\t\t\t\t|--- Your Money: ------------------------ {money:,} €")
-    print(f"\t\t\t\t\t\t\t|--- Your Cards: ------------------------ {sorted(player_own, key=custom_sort, reverse=True)}")
+    print(f"\t\t\t\t\t\t\t|--- Your Cards: ------------------------ {sorted(player_own, key=custom_sort, reverse=True)}")  # nopep8
     print(
         f"\t\t\t\t\t\t\t|-------------------------------------------------------------------------------------------")  # nopep8
     print(f"\t\t\t\t\t\t\t|--- In the Pot: ------------------------ {pot_money:,} €")
-    print(f"\t\t\t\t\t\t\t|--- Opponets money in the Pot:---------- {opponet_pot_money} €")
+    print(f"\t\t\t\t\t\t\t|--- Opponets money in the Pot:---------- {opponet_pot_money:,} €")
     print(f"\t\t\t\t\t\t\t|--- Your money in the Pot: ------------- {own_pot_money:,} €")
     print(
         f"\t\t\t\t\t\t\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~| Poker: Texas hold'em |~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")  # nopep8
@@ -43,7 +44,7 @@ def opponent_raise():
     for char in opponet_raise:
         opponet_raise = int(char)
     print(f'''_______________________________________________________
-                Your opponent raised the pot with {opponet_raise} $\n''')
+                Your opponent raised the pot with {opponet_raise:,} $\n''')
     pot_money += opponet_raise
     opponet_pot_money += opponet_raise
     pot_money_list.append(opponet_raise)
@@ -120,7 +121,7 @@ while money > 0:
             if own_pot_money > opponet_pot_money:  # wenn du mehr als dein gegner im pot hast
                 opponent_goes_with_u()
 
-            else:
+            else:                        # ansonsten hat der gegener die chance, zu erhöhen (25 zu 40 chance)
                 opponent_raise()
             statistics()
 
