@@ -44,6 +44,7 @@ def read_key(key):
 
 
 def create_crypt(text, key):
+    print(key)
     symbol_pos = 0
     for char in str(key):
         if char in special_symbol_list:
@@ -51,28 +52,29 @@ def create_crypt(text, key):
     while symbol_pos > len(special_symbol_list):
         symbol_pos -= 1
     block_symbol = special_symbol_list[symbol_pos]
-    crypt_text = ""
+    crypt_text_empty = ""
     durchgang_1 = 0
     possibilities = [True, False]
     for char in text:
         possible = random.choices(possibilities, weights=[20, 100])
         if possible:
-            crypt_text += block_symbol
+            crypt_text_empty += block_symbol
             add = random.choices(alphabet_list, k=(random.randint(1, 10)))
             add += random.choices(numbers_list, k=(random.randint(1, 10)))
             random.shuffle(add)
             for char in add:
-                crypt_text += char
-            crypt_text += block_symbol
-        nummber = ord(char) + key + durchgang_1
+                crypt_text_empty += char
+            crypt_text_empty += block_symbol
+        nummber = ord(char) + key
         while nummber >= 110000:
-            nummber -= 1
-        crypt_text += chr(nummber)
+            nummber -= 110000
+        crypt_text_empty += chr(nummber)
         durchgang_1 += key // 2
-    return crypt_text
+    return crypt_text_empty
 
 
 def solve_crypt(text, key, schluessel):
+    print(key)
     symbol_pos = 0
     for char in schluessel:
         if char in special_symbol_list:
@@ -80,7 +82,6 @@ def solve_crypt(text, key, schluessel):
     while symbol_pos >= len(special_symbol_list):
         symbol_pos -= 1
     block_symbol = special_symbol_list[symbol_pos]
-
     encrypt_text = ""
     durchgang_2 = 0
     for char in text:
@@ -90,9 +91,9 @@ def solve_crypt(text, key, schluessel):
         elif block_symbol in char and block_on_off:
             block_on_off = False
         elif not block_on_off:
-            nummber_2 = ord(char) - key - durchgang_2
+            nummber_2 = ord(char) - key
             while nummber_2 >= 110000 or nummber_2 < 0:
-                nummber_2 += 1
+                nummber_2 += 110000
             encrypt_text += chr(nummber_2)
             durchgang_2 += key // 2
     return encrypt_text
