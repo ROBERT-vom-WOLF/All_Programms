@@ -56,8 +56,8 @@ cards_liste = [
     "B -Skip",
     "B -Reverse",
     "B +2",
-    "B +4",
-               ]
+    "B +4"]
+
 decks = int(input("Wie viele Decks willst du verwenden?\t\t"))
 cards_count = int(input("Wie viele Karten willst du verwenden?\t\t"))
 all_decks = []
@@ -76,8 +76,8 @@ def give_card(count=1):
     while count > 0:
         card = random.choices(all_decks, k=1)
         card_deck += card
-        for char in card:
-            all_decks.remove(char)
+        for char_zgahsbhbhb in card:
+            all_decks.remove(char_zgahsbhbhb)
         count -= 1
     return card_deck
 
@@ -85,19 +85,23 @@ def give_card(count=1):
 player_1 = give_card(cards_count)
 player_2 = give_card(cards_count)
 random.shuffle(all_decks)
-while all_decks[0[2:3]] != " ":
-    random.shuffle(all_decks)
+oberste_karte = all_decks[0]
+while True:
+    if current_player_1:
+        print("Spieler 1 ist am Zug!\n")
+        for char in player_1:
+            print(char)
 
-if current_player_1:
-    print("Spieler 1 ist am Zug!\n")
-    for char in player_1:
-        print(char)
-    print(f"Oberste Karte:\t{all_decks[0]}")
-elif not current_player_1:
-    print("Spieler 2 ist am Zug!\n")
-    for char in player_2:
-        print(char)
+    elif not current_player_1:
+        print("Spieler 2 ist am Zug!\n")
+        for char in player_2:
+            print(char)
 
-else:
-    print("Error kein Boolean type")
-    exit()
+    else:
+        print("Error kein Boolean type")
+        exit()
+
+    print(f"Oberste Karte:\t{oberste_karte}")
+    user_input = "System, user_input char naming syntax type string"
+    while user_input[3:4] != oberste_karte[3:4] or user_input[0:1] != oberste_karte[3:4]:
+        user_input = input("Du legst ab:\t\t")

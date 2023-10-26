@@ -7,3 +7,5 @@ for nummer in range(1, 101):
         print("Buzz")
     else:
         print(nummer)
+
+        
