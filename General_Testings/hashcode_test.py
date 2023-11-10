@@ -1,6 +1,12 @@
-nummer = 0
-while True:
-    print(f"{nummer}:\t\t{chr(nummer)}")
-    nummer += 1
+nummer = 5
 
-# es gibt nur 55296 ( 0 bis 55295 ) Zeichen in dem Hashcode
+
+def add():
+    global nummer
+    if nummer == 5:
+        nummer += 5
+    return nummer
+
+
+print(add())
+print(nummer)
