@@ -1,0 +1,14 @@
+SELECT
+w.c_id AS sapmat_id,
+cw.c_string_value AS sapmat_matnr,
+swl.c_role AS link,
+w2.c_id as Klaster_id,
+swl2.c_role as link2,
+w3.c_id as Sys
+FROM workitem AS w
+INNER JOIN cf_workitem AS cw ON w.c_uri = cw.fk_uri_workitem AND cw.c_name = 'MATNR' and cw.c_string_value = '4171224'
+INNER JOIN struct_workitem_linkedworkitems AS swl ON w.c_uri = swl.fk_uri_workitem AND swl.c_role = 'contains'
+INNER JOIN workitem AS w2 ON swl.fk_uri_p_workitem = w2.c_uri AND w2.c_type = 'matcluster'
+inner join struct_workitem_linkedworkitems as swl2 on w2.c_uri = swl2.fk_uri_workitem AND swl2.c_role = 'placed_on'
+inner join workitem as w3 on swl2.fk_uri_p_workitem = w3.c_uri AND w3.c_type = 'systemRequirement'
+WHERE w.c_type ='sapmaterial'

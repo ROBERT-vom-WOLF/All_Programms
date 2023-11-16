@@ -1,0 +1,13 @@
+select
+w.c_id AS sapmat_id,
+cw.c_string_value AS sapmat_matnr,
+link_Meilenstein.c_role as Meilenstein,
+Meilenstein.c_id as ID,
+System_R.c_id as Sys
+FROM workitem AS w
+INNER JOIN cf_workitem AS cw ON w.c_uri = cw.fk_uri_workitem AND cw.c_name = 'MATNR' and cw.c_string_value = '4171224'
+inner join struct_workitem_linkedworkitems AS link_Meilenstein ON w.c_uri = link_Meilenstein.fk_uri_workitem AND link_Meilenstein.c_role = 'bundle'
+inner join workitem as Meilenstein on link_Meilenstein.fk_uri_p_workitem = Meilenstein.c_uri AND Meilenstein.c_type = 'milestone' and Meilenstein.c_id = '0E99EG-3470'
+inner join struct_workitem_linkedworkitems as swl2 on Meilenstein.c_uri = swl2.fk_uri_workitem AND swl2.c_role = 'planned_in'
+inner join workitem as System_R on swl2.fk_uri_p_workitem = System_R.c_uri AND System_R.c_type = 'systemRequirement'
+WHERE w.c_type ='sapmaterial'

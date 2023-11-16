@@ -20,6 +20,8 @@ while True:
     score = 0
     game_start = t.time()
     rts = 100  # random tick speed
+    fire_rate = 10
+    abilitys_list = [t.time()]
 
 
     def start_menu():
@@ -48,16 +50,19 @@ while True:
         if keys[pg.K_ESCAPE]:
             exit()
 
-        if keys[pg.K_PLUS] and rts > 1000:
-            rts += 1
 
-        if keys[pg.K_MINUS] and rts < 100:
-            rts += 1
+    def ability_1():
+        global fire_rate, abilitys_list
+        keys = pg.key.get_pressed()
+        if keys[pg.K_e] and (abilitys_list[-1] + 10 < t.time()):
+            fire_rate = 6
+            abilitys_list.append(t.time())
+            print(abilitys_list)
 
 
     def player_shooting(time):
         global bullets_list
-        fire_rate = 6
+        global fire_rate
         keys = pg.key.get_pressed()
         bullet = pg.Rect(PLAYER.x + PLAYER_WIDTH / 2 - 5, 1000 - PLAYER_HEIGHT - 10, 8, 20)
 

@@ -90,7 +90,7 @@ def check_if_hit():
 
 
 while True:
-    clock.tick(800)
+    clock.tick(100)
     current_time = t.time()
     WIN.blit(BG, (0, 0))
     time_text = FONT.render(f"Time: {round((game_start - current_time) * -1)}s", 1, "white")

@@ -1,0 +1,12 @@
+SELECT
+w.c_id AS sapmat_id,
+cw.c_string_value AS sapmat_matnr,
+swl.c_role AS link,
+w2.c_id,
+cw2.c_string_value AS Mat_Nummer
+FROM workitem AS w
+LEFT JOIN cf_workitem AS cw ON w.c_uri = cw.fk_uri_workitem AND cw.c_name = 'MATNR'
+LEFT JOIN struct_workitem_linkedworkitems AS swl ON w.c_uri = swl.fk_uri_p_workitem AND swl.c_role = 'kombination'
+LEFT JOIN workitem AS w2 ON swl.fk_uri_workitem = w2.c_uri AND w2.c_type = 'sapmaterial'
+LEFT JOIN cf_workitem AS cw2 ON w2.c_uri = cw2.fk_uri_workitem AND cw2.c_name = 'MATNR' 
+WHERE w.c_type = 'sapmaterial' AND w.c_id = 'SAP-3535'
