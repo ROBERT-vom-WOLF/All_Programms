@@ -16,10 +16,10 @@ def console():
         print("Du hast verloren!")
         exit()
     if uhr_min < 10:
-        print(f"\n\nUhrzeit:\t\t{uhr_h}:0{uhr_min}", end="\t\t")
+        print(f"\nUhrzeit:\t\t{uhr_h}:0{uhr_min}", end="\t\t")
     else:
-        print(f"\n\nUhrzeit:\t\t{uhr_h}:{uhr_min}", end="\t\t")
-    if you.VPN:
+        print(f"\nUhrzeit:\t\t{uhr_h}:{uhr_min}", end="\t\t")
+    if you.vpn:
         print("VPN on", end="\t\t")
     else:
         print("VPN off", end="\t\t")
@@ -47,7 +47,7 @@ def run_line_command(command):
             vpn_switch(you)
         if command == "spam":
             if spam(hacker):
-                hacker.VPN = False
+                hacker.vpn = False
                 hacker.spammed = True
                 hacker.bots_count += 500
 
@@ -86,8 +86,8 @@ while True:
     # ------------------------------------------------------------------------------------------------------------------
     if hacker.bots_count >= 1000:            # falls zu viele bots inm System sind, crashed er + sein VPN
         hacker.connected = False
-        hacker.VPN = False
+        hacker.vpn = False
 
-    if hacker.VPN:                          # falls der VPN an ist, bekommt er jeden durchlauf eine neue IP Adresse
+    if hacker.vpn:                          # falls der VPN an ist, bekommt er jeden durchlauf eine neue IP Adresse
         hacker.ip = generate_ip()
     # ------------------------------------------------------------------------------------------------------------------

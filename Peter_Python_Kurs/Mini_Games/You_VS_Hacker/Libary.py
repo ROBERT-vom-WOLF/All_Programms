@@ -65,26 +65,26 @@ def generate_ip():
     return adress
 
 
-def check_grab_ip(ziel, Stunden, Minuten, Estimated_Time):
-    _time = Stunden * Minuten
-    if _time in Estimated_Time:
-        Estimated_Time.remove(_time)
+def check_grab_ip(ziel, stunden, minuten, estimated_time):
+    _time = stunden * minuten
+    if _time in estimated_time:
+        estimated_time.remove(_time)
         print(f"\n-----------------Trace-----------------")
         print("Trace Complete!")
-        if not ziel.VPN:
+        if not ziel.vpn:
             print(f"Adress:\t\t{ziel.ip}")
         else:
             print(f"Adress:\t\t{ziel.ip}\nVPN recognized!")
-        print(f"-----------------Trace-----------------\n")
+        print(f"-----------------Trace-----------------")
 
 
 def vpn_switch(user):
     loading("connecting", 1)
-    if not user.VPN:
-        user.VPN = True
+    if not user.vpn:
+        user.vpn = True
         print("VPN toggel: On")
     else:
-        user.VPN = False
+        user.vpn = False
         print("VPN toggel: Off")
 
 
@@ -117,20 +117,20 @@ def ping(ziel):
         return False
 
 
-def initiate_grab_ip(Stunde, Minute):
+def initiate_grab_ip(stunde, minute):
     loading("Tracing ", 1.3)
     loading("Calculating", 0.7)
-    print(f"Estimated Time for Tracing completion: {Stunde + 1}:{Minute}")
+    print(f"Estimated Time for Tracing completion: {stunde + 1}:{minute}")
 
 
 class Info:
-    VPN = False
+    vpn = False
     ip = generate_ip()
     spammed = False
     connected = True
     bots_count = 0
 
-    def __init__(self, VPN=False, spammed=False, online=True):
-        self.VPN = VPN
+    def __init__(self, vpn=False, spammed=False, online=True):
+        self.vpn = vpn
         self.spammed = spammed
         self.connected = online

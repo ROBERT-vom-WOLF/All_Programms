@@ -103,12 +103,13 @@ def bezahlen(preis):
     while eingezahlt < preis:
         print(f"Kosten: {preis}")
         print("Ihre Einzahlung:")
-        quarters = int(input("Quarters(0,25 $):    "))
-        dimes = int(input("Dimes(0,10 $):       "))
-        nickles = int(input("Nickles(0,05 $):     "))
-        pennys = int(input("Pennys(0,01 $):      "))
+        quarters = input("Quarters(0,25 $):    ")
+        dimes = input("Dimes(0,10 $):       ")
+        nickles = input("Nickles(0,05 $):     ")
+        pennys = input("Pennys(0,01 $):      ")
 
         if "-stop" in quarters or "-stop" in dimes or "-stop" in nickles or "-stop" in pennys:
+            print("Zahlvorgang abgebrochen!\n\n")
             return
         else:
             quarters = int(quarters)
