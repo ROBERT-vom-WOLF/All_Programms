@@ -2,24 +2,21 @@ import pygame
 import time
 import random
 pygame.font.init()
-THREE_LANES = False
-god_mode = False
 
 while True:
 
     WIDTH, HEIGHT = 1000, 700
     WIN = pygame.display.set_mode((WIDTH, HEIGHT))
-    pygame.display.set_caption("Dash Clash")
+    pygame.display.set_caption("Speedy Dash 2")
     BG = pygame.transform.scale(pygame.image.load("backgrounds/bg_2.png"), (WIDTH, HEIGHT))
     PLAYER_WIDTH, PLAYER_HEIGHT, PLAYER_VEL = 30, 10, 370
     STAR_WIDTH, STAR_HEIGHT, STAR_VEL, STAR_LEN = 10, 20, 2, 1
     player = pygame.Rect(300, HEIGHT - PLAYER_HEIGHT - 85, PLAYER_WIDTH, PLAYER_HEIGHT)
-    SPEED = 80
-    SCORE = 0
-    SPEED_COUNTING = 1
-    DASH_COUNTING = 0
+    SPEED, SPEED_COUNTING, SCORE, DASH_COUNTING = 80, 1, 0, 0
     FONT = pygame.font.SysFont("72 Black", 30)
     END_SCREEN = pygame.font.SysFont("72 Black", 80)
+    THREE_LANES = False
+    god_mode = False
 
 
     def draw(elapsed_time, stars):
@@ -45,6 +42,13 @@ while True:
             pygame.draw.rect(WIN, (32, 11, 114), star)
         pygame.display.update()
 
+    def terminal_documentary(stars, elapsed_time):
+        print(f"(Dash Clash)Non-Friendly-Entities:\t{len(stars)}\t\t|\t\tSpeed:\t{SPEED}\t\t|\t\tTime:\t{elapsed_time}",
+              end="")  # nopep8
+        if god_mode:
+            print("\t\t|\t\tGod Mode ~ active", end="")
+        print("")
+
 
     def main():
         global STAR_VEL, SPEED, SPEED_COUNTING, DASH_COUNTING, god_mode, SCORE
@@ -60,11 +64,11 @@ while True:
         while run:
             star_count += clock.tick(SPEED)
             elapsed_time = time.time() - start_time
-            if round(elapsed_time * 100) % 400 == 0:
+            if round(elapsed_time * 100) % 400 == 0 and SPEED < 500:
                 SPEED += 4
                 SPEED_COUNTING += 1
 
-            if star_count > star_add_increment and len(stars) < 6:
+            if (star_count > star_add_increment and len(stars) < 6) or (SPEED > 480 and len(stars) < 4):
 
                 if THREE_LANES:
                     star_x = random.randint(0, 2)
@@ -81,10 +85,7 @@ while True:
                     star = pygame.Rect(310, -STAR_HEIGHT, STAR_WIDTH, STAR_HEIGHT)
 
                 stars.append(star)
-                print(f"(Dash Clash)Non-Friendly-Entities:\t{len(stars)}\t\t|\t\tSpeed:\t{SPEED}\t\t|\t\tTime:\t{elapsed_time}", end="")   # nopep8
-                if god_mode:
-                    print("\t\t|\t\tGod Mode ~ active", end="")
-                print("")
+                terminal_documentary(stars, elapsed_time)
                 star_add_increment = max(400, star_add_increment - 50)
                 star_count = 0
 
@@ -95,33 +96,7 @@ while True:
 
             #   Movement
             # -------------------------------------------
-
-            keys = pygame.key.get_pressed()
-            if keys[pygame.K_a] or keys[pygame.K_LEFT] or keys[pygame.K_f]:
-                if player.x != 300:
-                    DASH_COUNTING += 1
-                    player.x = 300
-
-            if THREE_LANES:     # check if the middel Lane is switched on
-                if keys[pygame.K_w] or keys[pygame.K_s] or keys[pygame.K_DOWN]:
-                    if player.x != 485:
-                        DASH_COUNTING += 1
-                        player.x = 485
-
-            if keys[pygame.K_d] or keys[pygame.K_RIGHT] or keys[pygame.K_l]:
-                if player.x != 670:
-                    DASH_COUNTING += 1
-                    player.x = 670
-
-            if keys[pygame.K_F8]:
-                god_mode = True
-
-            if keys[pygame.K_F7]:
-                god_mode = False
-
-            if keys[pygame.K_ESCAPE]:
-                exit()
-
+            movement()
             # -------------------------------------------
 
             for star in stars[:]:
@@ -157,7 +132,7 @@ while True:
                 DASH_COUNTING += 1
                 player.x = 300
 
-        if THREE_LANES:  # check if the middel Lane is switched on
+        if THREE_LANES or god_mode:  # check if the middel Lane is switched on
             if keys[pygame.K_w] or keys[pygame.K_s] or keys[pygame.K_DOWN]:
                 if player.x != 485:
                     DASH_COUNTING += 1
@@ -175,5 +150,7 @@ while True:
             god_mode = False
 
         if keys[pygame.K_ESCAPE]:
+            print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n-----------------Game Quit-----------------")
             exit()
     main()
+    print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n-----------------Game Restart-----------------")
