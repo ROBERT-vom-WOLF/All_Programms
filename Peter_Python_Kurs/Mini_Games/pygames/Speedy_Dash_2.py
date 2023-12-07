@@ -43,7 +43,7 @@ while True:
         pygame.display.update()
 
     def terminal_documentary(stars, elapsed_time):
-        print(f"(Dash Clash)Non-Friendly-Entities:\t{len(stars)}\t\t|\t\tSpeed:\t{SPEED}\t\t|\t\tTime:\t{elapsed_time}",
+        print(f"Non-Friendly-Entities:\t{len(stars)}\t\t|\t\tSpeed:\t{SPEED}\t\t|\t\tTime:\t{elapsed_time}",
               end="")  # nopep8
         if god_mode:
             print("\t\t|\t\tGod Mode ~ active", end="")
@@ -113,7 +113,7 @@ while True:
             if hit:
                 draw(elapsed_time, stars)
                 lost_text = END_SCREEN.render("GAME OVER!", 1, "red")
-                lost_text_2 = END_SCREEN.render(f"Score: {SCORE}!", 1, "white")
+                lost_text_2 = END_SCREEN.render(f"Score: {SCORE}", 1, "white")
                 WIN.blit(lost_text, (
                 WIDTH / 2 - lost_text.get_width() / 2, HEIGHT / 2 - lost_text.get_height() / 2))  # nopep8
                 WIN.blit(lost_text_2, (WIDTH / 2 - lost_text_2.get_width() / 2, (HEIGHT / 2 - lost_text_2.get_height() / 2) + lost_text.get_height()))  # nopep8

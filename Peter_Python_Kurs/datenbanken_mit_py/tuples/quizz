@@ -1,0 +1,33 @@
+# wie entfernt man werte aus einem tuple:
+a) mit der remove methode
+b) mit der pop methode
+c) unmöglich      <----------------------------------
+d) mit dem del keyword
+
+
+# welche aussage zu tupeln ist falsch:
+a) man kann eine for loop bei tupeln verwenden
+b) man kann werte zu einem tuple hinzufügen    <----------------------------------
+c) mit der index methode kann man den index eines wertes ermitteln
+d) mit der count methode kann sehen wie of ein element in einem tuple vorkommt
+
+
+#wie erstellt man ein tuple, was nur die zahl 1 enthält
+num_tuple = tuple(1)
+
+# wie erstellt man ein tupel von einer liste mit den folgenden werten:
+values = [10,20,30]
+values = (10,20,30)
+
+
+was trifft auf sets nicht zu:
+a) es gibt keine doppelten werte in einem set
+b) man kann eine for loop und set comprehension verwenden
+c) man kann auf einen wert in einem set über den index zugreifen     <----------------------------------
+
+
+
+stuff = [1,3,1,5,2,5,1,2,5]
+# wie erstellt man ein set aus der liste stuff, das keine duplikate enthält
+
+no_duplicate_stuff = list(set(stuff))

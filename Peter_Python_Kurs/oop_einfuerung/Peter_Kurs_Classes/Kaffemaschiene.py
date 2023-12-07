@@ -16,6 +16,7 @@ def concole_infos():
 
 
 def commands(user):
+    used_commands = 0
     if "-quit" in user:
         exit()
 
@@ -29,6 +30,7 @@ def commands(user):
         print(f"Wasser:\t\t{kaffe.wasser_kosten}")
         print(f"Milch:\t\t{kaffe.milch_kosten}")
         print("------------------------\n\n")
+        used_commands += 1
 
     if "-refill" in user:
         Resources.wasser_vorrat = resources["water"]
@@ -37,6 +39,7 @@ def commands(user):
         Resources.geld_vorrat = resources["money"]
         print("Die Kaffee-Maschiene wurde wieder befüllt!\n")
         user = "-status"     # nach dem refill wird der Status somit automatisch ausgegeben
+        used_commands += 1
 
     if "-status" in user:
         print("\n------Maschienen-Status:")
@@ -46,11 +49,12 @@ def commands(user):
         print(f"Milch:\t\t{maschiene.milch_vorrat}")
         print(f"Geld:\t\t{maschiene.geld_vorrat}")
         print("------------------------\n\n")
+        used_commands += 1
 
+    if used_commands > 0:
+        return True
     else:
         return False
-
-    return True
 
 
 class Kaffee:
@@ -99,8 +103,7 @@ class Resources:
 
 
 def bezahlen(preis):
-    eingezahlt = 0
-    while eingezahlt < preis:
+    while True:
         print(f"Kosten: {preis}")
         print("Ihre Einzahlung:")
         quarters = input("Quarters(0,25 $):    ")
@@ -112,31 +115,26 @@ def bezahlen(preis):
             print("Zahlvorgang abgebrochen!\n\n")
             return
         else:
-            quarters = int(quarters)
-            dimes = int(dimes)
-            nickles = int(nickles)
-            pennys = int(pennys)
+            eingezahlt = int(quarters) * 0.25
+            eingezahlt += int(dimes) * 0.10
+            eingezahlt += int(nickles) * 0.05
+            eingezahlt += int(pennys) * 0.01
+            if eingezahlt < preis:
+                print("\nUngenügend Geld eingezahlt!")
+                print(f"Es fehlt ihnen {preis - eingezahlt} $\n")
 
-        eingezahlt += quarters * 0.25
-        eingezahlt += dimes * 0.10
-        eingezahlt += nickles * 0.05
-        eingezahlt += pennys * 0.01
-        if eingezahlt < preis:
-            print("\nUngenügend Geld eingezahlt!")
-            print(f"Es fehlt ihnen {preis - eingezahlt} $\n")
+            elif eingezahlt > preis:
+                print(f"Sie bekommen {eingezahlt - preis} $ zurrück!")
+                print("`nen guten!")
 
-        elif eingezahlt > preis:
-            print(f"Sie bekommen {eingezahlt - preis} $ zurrück!")
-            print("`nen guten!")
-
-        elif eingezahlt == preis:
-            print("Passende Einzahlung!")
-            Resources.milch_vorrat -= kaffe.milch_kosten
-            Resources.wasser_vorrat -= kaffe.wasser_kosten
-            Resources.bohnen_vorrat -= kaffe.bohnen_kosten
-            Resources.geld_vorrat += kaffe.preis
-            print("`nen guten!")
-            return
+            elif eingezahlt == preis:
+                print("Passende Einzahlung!")
+                Resources.milch_vorrat -= kaffe.milch_kosten
+                Resources.wasser_vorrat -= kaffe.wasser_kosten
+                Resources.bohnen_vorrat -= kaffe.bohnen_kosten
+                Resources.geld_vorrat += kaffe.preis
+                print("`nen guten!")
+                return
 
 
 def accessable(wasser, milch, bohnen):
@@ -154,7 +152,6 @@ def accessable(wasser, milch, bohnen):
 
 
 concole_infos()
-print("Was wollen sie heute Trinken?")
 maschiene = Resources
 start = t.time()
 while True:
