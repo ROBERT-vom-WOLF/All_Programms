@@ -109,7 +109,7 @@ def user_logout(account):
         return None
 
 
-def command_prep(account):             # only used in main_loop to get an command line
+def command_prep(account):             # only used in main_loop to get command line
     if account:
         command_ln = input(f"{account.owner}   :\t\t")
     else:
@@ -140,3 +140,44 @@ def command_error(command):     # displays an command error, that skipps the cur
     print("Forcing next command...\n\n")
 
 
+def deposit(acc, all_accounts):
+    if not acc:
+        print("\n\n\t\t\t\t\t\t\tYou are not logged in yet!")
+    else:
+        print("Deposit in progess...")
+
+        # mainpart
+
+        target = input("An wen wollen sie überweisen? \n(Name / ID):\t\t")
+        target_exists = False
+
+        for x in all_accounts:
+            if target.lower() == str(x.user_id) or target.lower() == x.owner:
+                print(f"Überweisung an {x.owner}:")
+                target_exists = True
+                target = x
+
+        if not target_exists:
+            print("Ziel nicht gefunden")
+            print("Überweisung storniert")
+            return
+
+        betrag = int(input("Ihr Betrag, den sie überweisen wollen:\n\t"))
+        acc.deposit(betrag)
+        target.addition(betrag)
+        print("Überweisung erfolgreich!")
+        show_accounts_stats(acc)
+
+
+def withdraw(acc):
+    if not acc:
+        print("\n\n\t\t\t\t\t\t\tYou are not logged in yet!")
+    else:
+        print("withdraw in progess...")
+
+        # mainpart
+
+        betrag = int(input("Ihr Betrag, den sie abbuchen wollen:\n\t"))
+        acc.withdraw(betrag)
+        print("Abbuchung erfolgreich!")
+        show_accounts_stats(acc)

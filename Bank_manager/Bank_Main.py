@@ -3,7 +3,10 @@ from Bank_Commands import *
 from Bank_class import Bank
 account = None
 usr_list = []
+id_list = []
 usr_list.append(Bank(usr_list, "root_user", "root", 0))
+usr_list.append(Bank(usr_list, "robin", "root", 200))
+usr_list.append(Bank(usr_list, "josua", "root", 200))
 
 
 while True:
@@ -45,18 +48,12 @@ while True:
             exit()
 
         elif "deposit" in command:
-            if account:
-                account.deposit()
-            else:
-                print("\n\n\t\t\t\t\t\t\tYou are not logged in yet!")
+            deposit(account, usr_list)
 
         elif "withdraw" in command:
-            if account:
-                account.withdraw()
-            else:
-                print("\n\n\t\t\t\t\t\t\tYou are not logged in yet!")
+            withdraw(account)
 
-        elif "h" in command:
+        elif "h" in command or "hide" in command:
             console_hide()
 
         else:

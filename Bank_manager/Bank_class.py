@@ -1,19 +1,22 @@
+import random as rnd
+
+
 class Bank:
     def __init__(self, user_list, besitzer, password, geld=0):
-        self.owner = besitzer
+        self.owner = str(besitzer).title()
         self.password = password
-        self.balance = geld
+        self.balance = int(geld)
         self.user_id = len(user_list)
 
-    def deposit(self):
-        addition = int(input(f"Ihre Buchung auf das Konto '{self.owner}': \n\t"))
-        self.balance += addition
-        print(f"Sie haben {addition} € überwiesen")
 
-    def withdraw(self):
-        addition = int(input(f"Ihre Buchung von dem Konto '{self.owner}': \n\t"))
-        if self.balance - addition >= 0:
-            self.balance -= addition
-            print(f"Sie haben {addition} € abgehoben")
-        else:
-            print(f"Nicht möglich, ihr Kontostand beträgt {(self.balance - addition) * -1}€ zu wenig für diese Buchung")
+    def deposit(self, ammount):
+        ammount = int(ammount)
+        self.balance -= ammount
+
+    def withdraw(self, ammount):
+        ammount = int(ammount)
+        self.balance -= ammount
+
+    def addition(self, ammount):
+        ammount = int(ammount)
+        self.balance += ammount
