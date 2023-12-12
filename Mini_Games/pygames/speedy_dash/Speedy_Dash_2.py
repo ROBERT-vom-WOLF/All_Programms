@@ -6,9 +6,9 @@ pygame.font.init()
 while True:
 
     WIDTH, HEIGHT = 1000, 700
-    WIN = pygame.display.set_mode((WIDTH, HEIGHT))
+    WINDOW = pygame.display.set_mode((WIDTH, HEIGHT))
     pygame.display.set_caption("Speedy Dash 2")
-    BG = pygame.transform.scale(pygame.image.load("backgrounds/bg_2.png"), (WIDTH, HEIGHT))
+    BG = pygame.transform.scale(pygame.image.load("../Backgrounds/bg_2.png"), (WIDTH, HEIGHT))
     PLAYER_WIDTH, PLAYER_HEIGHT, PLAYER_VEL = 30, 10, 370
     STAR_WIDTH, STAR_HEIGHT, STAR_VEL, STAR_LEN = 10, 20, 2, 1
     player = pygame.Rect(300, HEIGHT - PLAYER_HEIGHT - 85, PLAYER_WIDTH, PLAYER_HEIGHT)
@@ -16,42 +16,42 @@ while True:
     FONT = pygame.font.SysFont("72 Black", 30)
     END_SCREEN = pygame.font.SysFont("72 Black", 80)
     THREE_LANES = False
-    god_mode = False
+    GOD_MODE = False
 
 
     def draw(elapsed_time, stars):
-        WIN.blit(BG, (0, 0))
+        WINDOW.blit(BG, (0, 0))
 
         # Hud
         # -------------------------------------------
 
         border = pygame.Rect(0, 0, WIDTH, 90)
-        pygame.draw.rect(WIN, "white", border)
+        pygame.draw.rect(WINDOW, "white", border)
         time_text = FONT.render(f"Time:  {round(elapsed_time)}s", 1, "black")
         score_text = FONT.render(f"Score: {SCORE}", 1, "black")
         dashes_text = FONT.render(f"Dashes: {DASH_COUNTING}", 1, "black")
-        WIN.blit(time_text, (10, 0))
-        WIN.blit(score_text, (10, 10 + time_text.get_height()))
-        WIN.blit(dashes_text, (WIDTH - dashes_text.get_width() - 10, 10))
+        WINDOW.blit(time_text, (10, 0))
+        WINDOW.blit(score_text, (10, 10 + time_text.get_height()))
+        WINDOW.blit(dashes_text, (WIDTH - dashes_text.get_width() - 10, 10))
 
         # -------------------------------------------
 
-        pygame.draw.rect(WIN, "black", player)
+        pygame.draw.rect(WINDOW, "black", player)
         # pygame.draw.rect(WIN, (239, 185, 143), player)
         for star in stars:
-            pygame.draw.rect(WIN, (32, 11, 114), star)
+            pygame.draw.rect(WINDOW, (32, 11, 114), star)
         pygame.display.update()
 
     def terminal_documentary(stars, elapsed_time):
         print(f"Non-Friendly-Entities:\t{len(stars)}\t\t|\t\tSpeed:\t{SPEED}\t\t|\t\tTime:\t{elapsed_time}",
               end="")  # nopep8
-        if god_mode:
+        if GOD_MODE:
             print("\t\t|\t\tGod Mode ~ active", end="")
         print("")
 
 
     def main():
-        global STAR_VEL, SPEED, SPEED_COUNTING, DASH_COUNTING, god_mode, SCORE
+        global STAR_VEL, SPEED, SPEED_COUNTING, DASH_COUNTING, GOD_MODE, SCORE
         run = True
         clock = pygame.time.Clock()
         start_time = time.time()
@@ -106,33 +106,36 @@ while True:
                     SCORE += 1
                 elif star.y + STAR_HEIGHT > player.y and star.colliderect(player):
                     stars.remove(star)
-                    if not god_mode:
+                    if not GOD_MODE:
                         hit = True
                     break
 
+            # Game Over Process
+            # -------------------------------------------
             if hit:
                 draw(elapsed_time, stars)
                 lost_text = END_SCREEN.render("GAME OVER!", 1, "red")
                 lost_text_2 = END_SCREEN.render(f"Score: {SCORE}", 1, "white")
-                WIN.blit(lost_text, (
+                WINDOW.blit(lost_text, (
                 WIDTH / 2 - lost_text.get_width() / 2, HEIGHT / 2 - lost_text.get_height() / 2))  # nopep8
-                WIN.blit(lost_text_2, (WIDTH / 2 - lost_text_2.get_width() / 2, (HEIGHT / 2 - lost_text_2.get_height() / 2) + lost_text.get_height()))  # nopep8
+                WINDOW.blit(lost_text_2, (WIDTH / 2 - lost_text_2.get_width() / 2, (HEIGHT / 2 - lost_text_2.get_height() / 2) + lost_text.get_height()))  # nopep8
                 pygame.display.update()
                 pygame.time.delay(5000)
                 break
+            # -------------------------------------------
 
             draw(elapsed_time, stars)
 
 
     def movement():
-        global player, DASH_COUNTING, god_mode
+        global player, DASH_COUNTING, GOD_MODE
         keys = pygame.key.get_pressed()
         if keys[pygame.K_a] or keys[pygame.K_LEFT] or keys[pygame.K_f]:
             if player.x != 300:
                 DASH_COUNTING += 1
                 player.x = 300
 
-        if THREE_LANES or god_mode:  # check if the middel Lane is switched on
+        if THREE_LANES or GOD_MODE:  # check if the middel Lane is switched on
             if keys[pygame.K_w] or keys[pygame.K_s] or keys[pygame.K_DOWN]:
                 if player.x != 485:
                     DASH_COUNTING += 1
@@ -144,10 +147,10 @@ while True:
                 player.x = 670
 
         if keys[pygame.K_F8]:
-            god_mode = True
+            GOD_MODE = True
 
         if keys[pygame.K_F7]:
-            god_mode = False
+            GOD_MODE = False
 
         if keys[pygame.K_ESCAPE]:
             print("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n-----------------Game Quit-----------------")

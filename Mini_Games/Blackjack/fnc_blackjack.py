@@ -25,8 +25,8 @@ def blackjack(graphics_on_off=""):
     wins = 0
     losses = 0
     black_jacks = 0
-    money = 20000000
-    blind = 1000000
+    money = 2000
+    blind = 100
     runde = 0
 
     while True:
