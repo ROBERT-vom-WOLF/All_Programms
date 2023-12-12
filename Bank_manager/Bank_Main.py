@@ -38,11 +38,7 @@ while True:
             account = user_login(usr_list)
 
         elif "logout" in command:
-            if account:
-                print(f"\n\n\t\t\t\t\t\t\tLogged out of {account.owner} successfully\n")
-                account = None
-            else:
-                print("\n\n\t\t\t\t\t\t\tYou are not logged in yet!")
+            account = user_logout(account)
 
         elif "exit" in command or "quit" in command:
             print("\n\n\n\t\t\tSee you soon!")
@@ -53,5 +49,15 @@ while True:
                 account.deposit()
             else:
                 print("\n\n\t\t\t\t\t\t\tYou are not logged in yet!")
+
+        elif "withdraw" in command:
+            if account:
+                account.withdraw()
+            else:
+                print("\n\n\t\t\t\t\t\t\tYou are not logged in yet!")
+
+        elif "h" in command:
+            console_hide()
+
         else:
             command_error(command)

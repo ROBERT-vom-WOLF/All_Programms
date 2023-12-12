@@ -1,4 +1,5 @@
 from Bank_class import Bank
+from Bank_Commands import console_hide
 
 
 def creat_account(original_liste, multiple=False):
@@ -15,8 +16,7 @@ def creat_account(original_liste, multiple=False):
         account_balance = int(input("Ihr Kontostand für den Account:\n\t"))
         account_pw = input("Ihr Passwort für den Account:\n\t")
 
-    for _ in range(0, 1000000):
-        print("\n")
+    console_hide()
 
     num = 0
     for _ in range(0, accounts_num):
@@ -26,5 +26,5 @@ def creat_account(original_liste, multiple=False):
         else:
             original_liste.append(Bank(original_liste, account_owner, account_pw, account_balance))
 
-    print(f"\n\nSuccessfully created {len(original_liste)} Account(s)\n")
+    print(f"\n\nSuccessfully created {accounts_num} Account(s)\n")
     return original_liste

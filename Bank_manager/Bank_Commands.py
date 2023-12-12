@@ -11,9 +11,11 @@ commands_list = [
     "clear",
     "login",
     "logout",
+    "h",
+    "deposit",
+    "withdraw",
     "exit",
     "break",
-    "deposit",
  ]
 
 
@@ -29,15 +31,27 @@ def show_accounts_stats(account, show_money=False, show_pw=False, show_all=False
 
 
 def help():                     # help
-    print(f"All Commands:\t\t", end="")
+    print(f"\n\nAll Commands:")
+    num = 0
+    print("\n-------------------------------------------")
     for x in commands_list:
-        print(f"{x}, ", end="")
+        num += 1
+        if num % 4 == 0:
+            print(f"{x}")
+        else:
+            print(f"{x},  ", end="")
+    print("\n-------------------------------------------\n")
 
 
 def print_all(users):           # show -a
     for x in users:
         if x.user_id > 0:
             show_accounts_stats(x)
+
+
+def console_hide():
+    for _ in range(0, 1000000):
+        print("\n")
 
 
 def print_selcet(users, acc):        # show
@@ -86,7 +100,16 @@ def user_login(user_list):
     return None
 
 
-def command_prep(account):             # only user in main_loop to get an command line
+def user_logout(account):
+    if account:
+        print(f"\n\n\t\t\t\t\t\t\tLogged out of {account.owner} successfully\n")
+        return None
+    else:
+        print("\n\n\t\t\t\t\t\t\tYou are not logged in yet!")
+        return None
+
+
+def command_prep(account):             # only used in main_loop to get an command line
     if account:
         command_ln = input(f"{account.owner}   :\t\t")
     else:
