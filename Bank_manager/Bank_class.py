@@ -1,8 +1,9 @@
 class Bank:
-    def __init__(self, user_list, besitzer, geld=0):
+    def __init__(self, user_list, besitzer, password, geld=0):
         self.owner = besitzer
+        self.password = password
         self.balance = geld
-        self.user_id = len(user_list) + 1
+        self.user_id = len(user_list)
 
     def deposit(self):
         addition = int(input(f"Ihre Buchung auf das Konto {self.owner}: \n\t"))
