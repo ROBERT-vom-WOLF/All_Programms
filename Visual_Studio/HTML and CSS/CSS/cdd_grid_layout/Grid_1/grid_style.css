@@ -1,0 +1,28 @@
+.container {
+    margin: 30px;
+    display: grid;
+    height: 500px;
+    /* grid-template-columns: 200px 200px 200px;
+    grid-template-rows: 300px 200px; */
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 300px;
+}
+
+.el1 {
+    background-color: red;
+    font-size: large;
+}
+
+.el2 {
+    background-color: aqua;
+    font-size: large;
+}
+.el3 {
+    background-color: green;
+    font-size: large;
+}
+.el4 {
+    background-color: gray;
+    font-size: large;
+}
+

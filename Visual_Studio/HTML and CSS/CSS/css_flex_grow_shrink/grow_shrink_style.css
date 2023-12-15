@@ -1,0 +1,37 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+}
+.red {
+    background-color: red;
+    height: 40px;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+.blue {
+    background-color: blue;
+    height: 40px;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+.green {
+    background-color: green;
+    height: 40px;
+    flex-grow: 0;
+    flex-shrink: 2;
+}
+.orange {
+    background-color: orange;
+    height: 40px;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+.gray {
+    background-color: gray;
+    height: 40px;
+    flex-grow: 0;
+    flex-shrink: 200;
+}

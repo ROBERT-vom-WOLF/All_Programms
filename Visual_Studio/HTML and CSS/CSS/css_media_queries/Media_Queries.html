@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Media Queries</title>
+    <style>
+        div {
+            background: lightblue;
+            width: 200px;
+            height: 200px;
+        }
+
+        @media (min-width: 319px) and (max-width: 480px) { div {
+                background: lightsalmon;}}
+
+        @media (min-width: 481px) and (max-width: 1200px) { div {
+                background: powerblue;}}
+
+        @media (min-width: 1201px) and (max-width: 1600px) { div {
+                background: limegreen;}}
+
+        @media (min-width: 1601px){ div {
+                background: seagreen;}}
+
+    </style>
+</head>
+<body>
+<div>Hello, I'm under the Water!</div>
+</body>
+</html>

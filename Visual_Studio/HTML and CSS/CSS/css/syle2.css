@@ -1,0 +1,17 @@
+div {
+    color: organge;
+}
+
+.yellow {
+    color: yellow;
+}
+
+#green {
+    color: green;
+}
+
+p[draggable] {
+    color: red;
+}
+
+* {background-color: darkgrey}

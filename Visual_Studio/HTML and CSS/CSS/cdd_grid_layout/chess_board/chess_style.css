@@ -1,0 +1,31 @@
+.k1 {
+    background-color: beige;
+    height: 100px;
+    width: 100px;
+}
+
+.k2 {
+    background-color: burlywood;
+    height: 100px;
+    width: 100px;
+}
+
+.board {
+    margin: 50px;
+    width: 800px;
+    border: 15px solid rgb(123, 68, 1);
+
+    display: grid;
+    grid-template-columns: (100px)*8;
+    grid-template-rows: (100px)*8 ;
+}
+
+.table {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+body {
+    background-color: brown;
+}

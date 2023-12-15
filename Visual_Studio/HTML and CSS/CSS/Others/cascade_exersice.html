@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Cascade</title>
+    <style>
+        .box {
+           padding: 10px;
+           background: blue;
+        }
+        .inner-box {
+          background: red;
+            padding: 10px;
+        }
+        .white-text {
+            color: white;
+        }
+        #outer-box {
+          padding: 10px;
+          background: purple;
+          }
+
+        p {
+          color: white;
+          margin: 0;
+        }
+
+    </style>
+</head>
+
+<body>
+<div id="outer-box" class="box">
+    <div class="box">
+        <p>Yellow Text</p>
+        <div class="box inner-box">
+            <p class="white-text">White Text</p>
+        </div>
+    </div>
+    <div class="box">
+        <p>Yellow Text</p>
+        <div class="box inner-box">
+            <p class="white-text">White Text</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+
+<!--
+Done: füge nur neue definitionen für stile hinzu ändere keine bestehenden ab
+Done: jede box soll 10px padding an allen 4 seiten haben
+Done: die texte White Text sollten weiße schriftfarben bekommen
+Done die texte White Text sollten einen roten hintergrund bekommen
+Done: das äußere div sollte die hintergrundfarbe purple bekommen
+-->

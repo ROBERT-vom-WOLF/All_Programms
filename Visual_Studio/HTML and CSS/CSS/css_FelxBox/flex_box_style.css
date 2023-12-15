@@ -1,0 +1,68 @@
+/*
+div {
+    height: 60px;
+    width: 60px;
+   }
+ */
+
+.red {
+
+  background-color: #eb4d4b;
+  flex-basis: 100px;
+}
+
+.orange {
+  background-color: #f0932b;
+  flex-basis: 100px;
+}
+
+.yellow {
+  background-color: #f6e58d;
+  flex-basis: 100px;
+}
+
+.green {
+  background-color: #6ab04c;
+  flex-basis: 100px;
+}
+
+.blue {
+  background-color: #4834d4;
+  flex-basis: 100px;
+}
+
+.purple {
+  background-color: #30336b;
+  flex-basis: 100px;
+}
+
+.pink {
+  background-color: #be2edd;
+  flex-basis: 100px;
+}
+
+.container {
+    /*
+    display: inline-flex    flex bis zur Zeilenlänge
+    display: flex           felx bis zur Fesnter-Seite
+    display: gap            abstände zwischen den elementen
+    */
+    border: 4px solid dimgrey;
+    height: 400px;
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+/*
+flex-direction:
+justify-content:
+align-items:
+
+
+justify-content: center;
+flex-direction: column-reverse;
+flex-wrap: wrap-reverse;
+align-content: space-between;
+*/

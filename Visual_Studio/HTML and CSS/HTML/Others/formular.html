@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>formular</title>
+</head>
+<body>
+<form action="send.html" id="formtest">
+<label for="vorname">Vorname:</label>
+<input type="text" id="vorname"/>
+<br/><br/>
+
+<label for="nachname">Nachname:</label>
+<input type="text" id="nachname"/>
+<br/><br/>
+
+<label for="passwort">Passwort:</label>
+<input type="password" id="passwort"/>
+<br/><br/>
+
+<label for="passwort2">Passwort wiederholen:</label>
+<input type="password" id="passwort2"/>
+<br/><br/>
+
+<label for="Nachricht">Nachricht:</label>
+<textarea id="Nachricht"></textarea>
+<br/><br/>
+
+<label for="select">weitere Reiseziele:</label>
+<select id="select" multiple>
+    <option value="1">Ägypten</option>
+    <option value="1">Frankreich</option>
+    <option value="1">Spanien</option>
+    <option value="1">Italien</option>
+    <option value="1">Japan</option>
+    <option value="1">Canada</option>
+</select>
+
+<h4>Hobbies:</h4>
+<label for="box1">Reisen</label>
+<input type="checkbox" id="box1"/>
+<br/><br/>
+<label for="box2">Computer</label>
+<input type="checkbox" id="box2"/>
+<br/><br/>
+<label for="box3">Sport</label>
+<input type="checkbox" id="box3"/>
+<br/><br/>
+<label for="box4">Tiere</label>
+<input type="checkbox" id="box4"/>
+<br/><br/>
+
+
+<h4>Volljährig:</h4>
+<label for="111">ja</label>
+<input type="radio" id="111" name="radio"/>
+<br/><br/>
+<label for="222">Nein</label>
+<input type="radio" id="222" name="radio"/>
+<br/><br/>
+
+<label for="number">Alter:</label>
+<input type="number" id="number" min="0" max="999"/>
+<br/><br/>
+
+<label for="date">Geburtsdatum:</label>
+<input type="date" id="date"/>
+<br/><br/>
+    <input type="submit" value="send">
+    <input type="reset" value="reset">
+</form>
+</body>
+</html>
