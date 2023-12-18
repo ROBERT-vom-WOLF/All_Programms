@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f56eff2e-6a58-4d3b-bfca-9405d1394bd3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../Peter_Python_Kurs/oop_andvanced/4_specs_of_oop/inheritance/iheritance_exersice.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Peter_Python_Kurs/oop_andvanced/4_specs_of_oop/inheritance/inheritance.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Peter_Python_Kurs/oop_andvanced/4_specs_of_oop/polymorphism/exersice.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Peter_Python_Kurs/oop_andvanced/4_specs_of_oop/polymorphism/polymorphism.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Peter_Python_Kurs/oop_andvanced/4_specs_of_oop/representation/representation.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Peter_Python_Kurs/oop_andvanced/classes_advanced/class_method_exersice.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bank_manager/Bank_Commands.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Bank_manager/Bank_Commands.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bank_manager/Bank_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Bank_manager/Bank_Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bank_manager/Bank_account_creation.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Bank_manager/Bank_account_creation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bank_manager/Bank_class.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Bank_manager/Bank_class.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 7
+}]]></component>
+  <component name="ProjectId" id="2ZZWBKg3kKZDVcb36aoy6yiocw1" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "wolf"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f56eff2e-6a58-4d3b-bfca-9405d1394bd3" name="Changes" comment="" />
+      <created>1702629946425</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1702629946425</updated>
+    </task>
+    <servers />
+  </component>
+</project>

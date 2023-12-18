@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Grid Layout</title>
+    <style>
+        .container {
+            margin: 20px;
+            display: grid;
+            height: 500px;
+            /*
+            grid-template-columns: 200px 400px;
+            grid-template-rows:400px 200px 100px 300px;
+             */
+            grid-template-columns:  1fr 1fr 1fr;
+            grid-template-rows: 400px 200px 100px 300px;
+        }
+        .el1 {
+            background: rgba(255, 154, 72, 0.5);
+        }
+        .el2 {
+            background: rgba(255, 0, 0, 0.5);
+            grid-column-start: 2;
+            /*
+            grid-column-end: 3;
+            */
+            grid-column-end: span 2;
+
+            grid-row-start: 1;
+            grid-row-end: 2;
+        }
+        .el3 {
+            background: rgba(0, 128, 0, 0.5);
+            grid-column-start: 2;
+            grid-column-end: 3;
+            /*
+            grid-column: 2 / 4;
+            */
+
+            grid-row-start: 1;
+            grid-row-end: 2;
+            /*
+            grid-row: 2 / 4;
+            */
+        }
+        .el4 {
+            background: rgba(0, 4, 255, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="el1">Element 1</div>
+        <div class="el2">Element 2</div>
+        <div class="el3">Element 3</div>
+        <div class="el4">Element 4</div>
+    </div>
+</body>
+</html>
