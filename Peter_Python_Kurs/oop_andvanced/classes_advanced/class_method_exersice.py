@@ -57,6 +57,5 @@ class Deck:
             return given_card
 
 
-karte = Card(2, "herz")
 stapel = Deck()
 print(stapel)
