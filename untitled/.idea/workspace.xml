@@ -2,16 +2,37 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f56eff2e-6a58-4d3b-bfca-9405d1394bd3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../Peter_Python_Kurs/oop_andvanced/4_specs_of_oop/inheritance/iheritance_exersice.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Peter_Python_Kurs/oop_andvanced/4_specs_of_oop/inheritance/inheritance.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Peter_Python_Kurs/oop_andvanced/4_specs_of_oop/polymorphism/exersice.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Peter_Python_Kurs/oop_andvanced/4_specs_of_oop/polymorphism/polymorphism.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Peter_Python_Kurs/oop_andvanced/4_specs_of_oop/representation/representation.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Peter_Python_Kurs/oop_andvanced/classes_advanced/class_method_exersice.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Bank_manager/Bank_Commands.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Bank_manager/Bank_Commands.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Bank_manager/Bank_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Bank_manager/Bank_Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Bank_manager/Bank_account_creation.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Bank_manager/Bank_account_creation.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Bank_manager/Bank_class.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Bank_manager/Bank_class.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Arbeitsrechner/In Progress/Arbeitsrechner_3.0.1.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Big_Projekts/Arbeitsrechner/In Progress/Arbeitsrechner_3.0.1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Arbeitsrechner/Testings/Arbeitsrechner_strg_v.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Big_Projekts/Arbeitsrechner/Testings/Arbeitsrechner_strg_v.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Arbeitsrechner/Testings/Arbeitsrechner_test_splitting.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Big_Projekts/Arbeitsrechner/Testings/Arbeitsrechner_test_splitting.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Arbeitsrechner/Testings/Arbeitsrechner_test_uhrzeit_split.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Big_Projekts/Arbeitsrechner/Testings/Arbeitsrechner_test_uhrzeit_split.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Arbeitsrechner/Versions/Abreitsrechner 1h_version_01.3.2.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Big_Projekts/Arbeitsrechner/Versions/Abreitsrechner 1h_version_01.3.2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Arbeitsrechner/Versions/Arbeitsrechner Quickstart 1h Pause.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Big_Projekts/Arbeitsrechner/Versions/Arbeitsrechner Quickstart 1h Pause.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Arbeitsrechner/Versions/Arbeitsrechner asking_version_01.2.5.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Big_Projekts/Arbeitsrechner/Versions/Arbeitsrechner asking_version_01.2.5.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Arbeitsrechner/Versions/Arbeitsrechner asking_version_01.2.6.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Big_Projekts/Arbeitsrechner/Versions/Arbeitsrechner asking_version_01.2.6.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Arbeitsrechner/Versions/Arbeitsrechner_1.5.6.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Big_Projekts/Arbeitsrechner/Versions/Arbeitsrechner_1.5.6.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Arbeitsrechner/Versions/Arbeitsrechner_Entwurf_1.0.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Big_Projekts/Arbeitsrechner/Versions/Arbeitsrechner_Entwurf_1.0.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Arbeitsrechner/Versions/Arbeitsrechner_Entwurf_1.2.6.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Big_Projekts/Arbeitsrechner/Versions/Arbeitsrechner_Entwurf_1.2.6.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Arbeitsrechner/Versions/Arbeitsrechner_Entwurf_1.2.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Big_Projekts/Arbeitsrechner/Versions/Arbeitsrechner_Entwurf_1.2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Arbeitsrechner/Versions/Arbeitsrechner_Entwurf_1.3.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Big_Projekts/Arbeitsrechner/Versions/Arbeitsrechner_Entwurf_1.3.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Arbeitsrechner/Versions/Arbeitsrechner_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Big_Projekts/Arbeitsrechner/Versions/Arbeitsrechner_functions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Arbeitsrechner/Versions/arbeitsrechner gui.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Big_Projekts/Arbeitsrechner/Versions/arbeitsrechner gui.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bank_manager/Bank_Commands.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Big_Projekts/Bank_manager/Bank_Commands.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bank_manager/Bank_Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Big_Projekts/Bank_manager/Bank_Main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bank_manager/Bank_account_creation.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Big_Projekts/Bank_manager/Bank_account_creation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Bank_manager/Bank_class.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Big_Projekts/Bank_manager/Bank_class.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Converter/In Progress/Converter_1.2.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Big_Projekts/Converter/In Progress/Converter_1.2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Converter/Versions/Converter.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Big_Projekts/Converter/Versions/Converter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mathetest/Final Programm/Mathetest_but_komplex.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Big_Projekts/Mathetest/Final Programm/Mathetest_but_komplex.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mathetest/Final Programm/fnc_ask_again.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Big_Projekts/Mathetest/Final Programm/fnc_ask_again.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mathetest/Final Programm/ndbfjers.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Big_Projekts/Mathetest/Final Programm/ndbfjers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mathetest/Testings/Mathetest_functions.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Big_Projekts/Mathetest/Testings/Mathetest_functions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mathetest/Testings/Mathetest_test_funcions.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Big_Projekts/Mathetest/Testings/Mathetest_test_funcions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mathetest/Testings/Mathetestetsings.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Big_Projekts/Mathetest/Testings/Mathetestetsings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mathetest/Versions/Mathetest Quickstart 30 x 40.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Big_Projekts/Mathetest/Versions/Mathetest Quickstart 30 x 40.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Mathetest/Versions/Mathetest.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Big_Projekts/Mathetest/Versions/Mathetest.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,9 +42,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2ZZWBKg3kKZDVcb36aoy6yiocw1" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -33,9 +54,25 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "wolf"
+    "git-widget-placeholder": "wolf",
+    "last_opened_file_path": "C:/Users/hildwein/Desktop/Programme/Visual_Studio/HTML and CSS/HTML/Closet_idea"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="untitled" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="untitled" />
+      <option name="filePath" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
